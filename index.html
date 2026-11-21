@@ -1,740 +1,1821 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f9f4eb">
-
-    <title>Sean Julian Danendra — Personal Profile</title>
-
-    <meta name="description" content="The personal portfolio of Sean Julian Danendra. A space for curiosity, creativity, exploration, and continuous growth.">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Amsterdam+One&family=DM+Serif+Display&family=Poppins:wght@300;400;500;600;700&family=Allura&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --red: #c00203;
-            --cream: #f9f4eb;
-            --black: #000000;
-            --gray: #77716a;
-            --border: rgba(0,0,0,0.13);
-
-            --sans: 'Poppins', sans-serif;
-            --serif: 'Times New Roman', serif;
-            --script: 'Allura', cursive;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: var(--cream);
-            color: var(--black);
-            font-family: var(--sans);
-            overflow-x: hidden;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* NAVIGATION */
-
-        nav {
-            width: 100%;
-            padding: 26px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 10;
-        }
-
-        .logo {
-            font-family: var(--serif);
-            font-size: 23px;
-            letter-spacing: -1px;
-        }
-
-        .logo span {
-            color: var(--red);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 35px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--red);
-        }
-
-        .nav-number {
-            font-family: var(--serif);
-            font-style: italic;
-            font-size: 13px;
-        }
-
-        /* HERO */
-
-        .hero {
-            min-height: 100vh;
-            padding: 150px 8% 80px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-        }
-
-        .hero-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 50px;
-        }
-
-        .eyebrow {
-            font-size: 10px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--red);
-        }
-
-        .availability {
-            font-size: 10px;
-            letter-spacing: 1px;
-            color: var(--gray);
-        }
-
-        .availability::before {
-            content: "";
-            display: inline-block;
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: var(--red);
-            margin-right: 9px;
-        }
-
-        .hero-title {
-            font-family: var(--serif);
-            font-weight: 400;
-            font-size: clamp(65px, 11vw, 155px);
-            line-height: 0.86;
-            letter-spacing: -7px;
-            text-transform: uppercase;
-        }
-
-        .hero-title span {
-            display: block;
-        }
-
-        .hero-title .second {
-            color: var(--red);
-            font-style: italic;
-            margin-left: 12%;
-        }
-
-        .hero-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-top: 65px;
-        }
-
-        .hero-description {
-            max-width: 330px;
-            font-size: 12px;
-            line-height: 2;
-            color: var(--gray);
-        }
-
-        .signature {
-            font-family: var(--script);
-            color: var(--red);
-            font-size: 48px;
-            transform: rotate(-8deg);
-        }
-
-        .scroll-indicator {
-            font-size: 9px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            writing-mode: vertical-rl;
-        }
-
-        /* DIVIDER */
-
-        .line {
-            height: 1px;
-            background: var(--border);
-            margin: 0 8%;
-        }
-
-        /* ABOUT */
-
-        section {
-            padding: 120px 8%;
-        }
-
-        .section-label {
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--red);
-            margin-bottom: 35px;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: start;
-        }
-
-        .about-title {
-            font-family: var(--serif);
-            font-weight: 400;
-            font-size: clamp(45px, 6vw, 80px);
-            line-height: 1.05;
-        }
-
-        .about-title em {
-            color: var(--red);
-        }
-
-        .about-content {
-            padding-top: 15px;
-        }
-
-        .about-content p {
-            font-size: 13px;
-            line-height: 2.2;
-            color: var(--gray);
-            margin-bottom: 25px;
-        }
-
-        .about-content strong {
-            color: var(--black);
-            font-weight: 500;
-        }
-
-        /* PERSONAL QUOTE */
-
-        .quote-section {
-            background: var(--red);
-            color: var(--cream);
-            text-align: center;
-            padding: 115px 12%;
-        }
-
-        .quote-mark {
-            font-family: var(--serif);
-            font-size: 80px;
-            line-height: 0.7;
-        }
-
-        .quote-text {
-            font-family: var(--serif);
-            font-size: clamp(30px, 5vw, 62px);
-            line-height: 1.2;
-            font-style: italic;
-            font-weight: 400;
-            margin: 35px auto;
-            max-width: 900px;
-        }
-
-        .quote-author {
-            font-size: 9px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-        }
-
-        /* VALUES */
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .value-card {
-            border-top: 1px solid var(--black);
-            padding: 25px 5px;
-            transition: 0.3s;
-        }
-
-        .value-card:hover {
-            border-color: var(--red);
-            transform: translateY(-5px);
-        }
-
-        .value-number {
-            font-family: var(--serif);
-            font-size: 16px;
-            color: var(--red);
-        }
-
-        .value-card h3 {
-            font-family: var(--serif);
-            font-size: 29px;
-            font-weight: 400;
-            margin: 45px 0 15px;
-        }
-
-        .value-card p {
-            color: var(--gray);
-            font-size: 11px;
-            line-height: 2;
-        }
-
-        /* SKILLS */
-
-        .skills-section {
-            background: #eee7dc;
-        }
-
-        .skills-heading {
-            font-family: var(--serif);
-            font-size: clamp(45px, 7vw, 85px);
-            font-weight: 400;
-            margin-bottom: 60px;
-        }
-
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .skill {
-            border: 1px solid rgba(0,0,0,0.25);
-            border-radius: 50px;
-            padding: 13px 25px;
-            font-size: 11px;
-            transition: 0.3s;
-        }
-
-        .skill:hover {
-            background: var(--red);
-            border-color: var(--red);
-            color: var(--cream);
-        }
-
-        /* CONTACT */
-
-        .contact {
-            text-align: center;
-            padding: 140px 8%;
-        }
-
-        .contact h2 {
-            font-family: var(--serif);
-            font-weight: 400;
-            font-size: clamp(55px, 9vw, 115px);
-            line-height: 1;
-        }
-
-        .contact h2 em {
-            color: var(--red);
-        }
-
-        .contact p {
-            font-size: 11px;
-            color: var(--gray);
-            margin: 30px 0;
-        }
-
-        .contact-button {
-            display: inline-block;
-            background: var(--red);
-            color: var(--cream);
-            padding: 17px 38px;
-            border-radius: 50px;
-            font-size: 10px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-
-        .contact-button:hover {
-            background: var(--black);
-            transform: translateY(-3px);
-        }
-
-        /* FOOTER */
-
-        footer {
-            padding: 30px 8%;
-            border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
-
-        footer p {
-            font-size: 9px;
-            color: var(--gray);
-            letter-spacing: 1px;
-        }
-
-        .footer-signature {
-            font-family: var(--script);
-            font-size: 30px;
-            color: var(--red);
-        }
-
-        /* ANIMATION */
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* RESPONSIVE */
-
-        @media (max-width: 768px) {
-
-            nav {
-                padding: 22px 6%;
-            }
-
-            .nav-links {
-                gap: 15px;
-            }
-
-            .nav-links a {
-                font-size: 8px;
-                letter-spacing: 1px;
-            }
-
-            .nav-number {
-                display: none;
-            }
-
-            .hero {
-                padding: 150px 6% 70px;
-            }
-
-            .hero-title {
-                font-size: clamp(55px, 13vw, 100px);
-                letter-spacing: -3px;
-            }
-
-            .hero-title .second {
-                margin-left: 5%;
-            }
-
-            .hero-bottom {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 35px;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 35px;
-            }
-
-            section {
-                padding: 85px 6%;
-            }
-
-            .values-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .value-card h3 {
-                margin: 25px 0 10px;
-            }
-
-            footer {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .availability {
-                font-size: 8px;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .nav-links {
-                gap: 9px;
-            }
-
-            .nav-links a {
-                font-size: 7px;
-            }
-        }
-
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="theme-color" content="#B5091B">
+  <meta name="description" content="Discover the personal portfolio of Sean Julian Danendra, an independent learner and creative explorer interested in technology, web development, digital creativity, and continuous personal growth.">
+
+  <meta name="keywords" content="Sean Julian Danendra, Sean Julian Danendra portfolio, personal portfolio Indonesia, web development, technology, digital creativity, personal development, Jakarta Indonesia">
+
+  <meta name="author" content="Sean Julian Danendra">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Sean Julian Danendra | Personal Portfolio">
+  <meta property="og:description" content="Curious by nature. Creative by perspective. Driven by growth. Explore my interests, projects, and journey.">
+  <!-- NOTE: social scrapers require an ABSOLUTE URL for og:image / twitter:image.
+       Replace the placeholder domain below with your real deployed URL. -->
+  <meta property="og:image" content="https://seanjuliandanendra.example/assets/images/brand-banner.png">
+  <meta property="og:image:alt" content="Sean Julian Danendra personal portfolio brand banner">
+  <meta property="og:url" content="https://seanjuliandanendra.example/">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sean Julian Danendra | Personal Portfolio">
+  <meta name="twitter:description" content="A personal space for technology, creativity, exploration, and continuous growth.">
+  <meta name="twitter:image" content="https://seanjuliandanendra.example/assets/images/brand-banner.png">
+
+  <title>Sean Julian Danendra | Personal Portfolio</title>
+
+  <!-- Inline SVG favicon (data URI) so the page works with no external assets. -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23B5091B'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='16' font-weight='bold' text-anchor='middle' fill='%23F4EFE6'%3ESJD%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@500;600&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS
+       ============================================================ */
+    :root {
+      --red:        #B5091B;
+      --red-deep:   #8A0613;
+      --red-soft:   #E8D6D8;
+      --ivory:      #F4EFE6;
+      --paper:      #FAF8F3;
+      --charcoal:   #141414;
+      --ink:        #0B0B0B;
+      --muted:      #6B6B6B;
+      --line:       rgba(20, 20, 20, 0.12);
+      --line-light: rgba(244, 239, 230, 0.18);
+
+      --maxw: 1240px;
+      --gutter: clamp(1.25rem, 4vw, 3rem);
+      --section-pad: clamp(4.5rem, 10vw, 9rem);
+
+      --f-display: 'Anton', 'Impact', sans-serif;
+      --f-body:    'DM Sans', system-ui, sans-serif;
+      --f-italic:  'Playfair Display', Georgia, serif;
+      --f-hand:    'Caveat', cursive;
+    }
+
+    /* ============================================================
+       RESET
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--f-body);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+      font-size: clamp(0.95rem, 1.05vw, 1.0625rem);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a   { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+    :focus-visible {
+      outline: 2px solid var(--red);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -100px;
+      background: var(--ink);
+      color: var(--ivory);
+      padding: 0.7rem 1.1rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      z-index: 1000;
+      transition: top 0.25s ease;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    /* ============================================================
+       LAYOUT HELPERS
+       ============================================================ */
+    .section { padding-block: var(--section-pad); }
+    .wrap    { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); }
+
+    .eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+
+    em { font-family: var(--f-italic); font-style: italic; font-weight: 500; }
+
+    .section-kicker {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding-bottom: clamp(2rem, 5vw, 3.5rem);
+      border-bottom: 1px solid var(--line);
+      margin-bottom: clamp(2.5rem, 5vw, 4rem);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .section-kicker span:first-child { color: var(--red); font-weight: 700; }
+    .section-kicker span:last-child  { color: var(--muted); }
+    .section-kicker.light-kicker { border-color: var(--line-light); }
+    .section-kicker.light-kicker span:last-child { color: rgba(244,239,230,0.6); }
+
+    /* ============================================================
+       BUTTONS / LINKS
+       ============================================================ */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 1rem 1.6rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border: 1.5px solid currentColor;
+      transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    }
+    .button span { transition: transform 0.3s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button:hover span { transform: translate(3px, 3px); }
+
+    .button-light { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
+    .button-light:hover { background: var(--red); border-color: var(--red); }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding-bottom: 4px;
+      border-bottom: 1.5px solid currentColor;
+    }
+    .text-link span { transition: transform 0.3s ease; }
+    .text-link:hover span { transform: translate(3px, -3px); }
+    .light-link { color: var(--ink); }
+
+    /* ============================================================
+       HEADER / NAV
+       ============================================================ */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1.1rem var(--gutter);
+      /* NOTE: intentionally NO backdrop-filter. backdrop-filter (like filter)
+         creates a containing block for position:fixed descendants, which would
+         anchor the mobile off-canvas nav to the header instead of the viewport.
+         A near-opaque background keeps the header readable without that effect. */
+      background: rgba(250, 248, 243, 0.97);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .wordmark {
+      font-family: var(--f-display);
+      font-size: 1.7rem;
+      letter-spacing: 0.04em;
+      line-height: 1;
+      display: inline-flex;
+      align-items: flex-start;
+    }
+    .wordmark span {
+      font-size: 0.55em;
+      color: var(--red);
+      margin-left: 1px;
+    }
+
+    .primary-nav {
+      display: flex;
+      gap: clamp(1rem, 2.2vw, 2rem);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+    }
+    .primary-nav a {
+      position: relative;
+      padding: 0.25rem 0;
+      transition: color 0.25s ease;
+    }
+    .primary-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: -2px;
+      width: 0; height: 2px;
+      background: var(--red);
+      transition: width 0.3s ease;
+    }
+    .primary-nav a:hover,
+    .primary-nav a.is-active { color: var(--red); }
+    .primary-nav a:hover::after,
+    .primary-nav a.is-active::after { width: 100%; }
+
+    .header-note {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .header-note i {
+      width: 7px; height: 7px;
+      background: var(--red);
+      border-radius: 50%;
+      display: inline-block;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      width: 30px;
+      padding: 4px;
+    }
+    .menu-toggle span {
+      display: block;
+      height: 2px;
+      background: var(--ink);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .menu-toggle.is-open span:first-child { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle.is-open span:last-child  { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Dimmed backdrop for the mobile off-canvas nav. Hidden on desktop. */
+    .nav-backdrop { display: none; }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(5rem, 12vh, 7rem) var(--gutter) 2rem;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(181,9,27,0.06), transparent 45%),
+        var(--paper);
+      overflow: hidden;
+    }
+
+    .hero-topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .hero-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: clamp(1.5rem, 3vw, 2.5rem);
+      padding-block: clamp(2rem, 6vh, 4rem);
+    }
+
+    .hero-eyebrow { font-size: 0.78rem; }
+
+    .hero h1 {
+      font-family: var(--f-display);
+      font-weight: 400;
+      font-size: clamp(3.5rem, 17vw, 15rem);
+      line-height: 0.82;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+    }
+    .hero h1 span { display: block; }
+    .hero h1 span:nth-child(2) {
+      padding-left: clamp(1rem, 8vw, 6rem);
+      color: var(--red);
+    }
+    .hero h1 span:nth-child(3) {
+      padding-left: clamp(2rem, 16vw, 12rem);
+    }
+
+    .hero-tagline {
+      font-size: clamp(1.25rem, 2.4vw, 1.9rem);
+      line-height: 1.3;
+      max-width: 36ch;
+      font-weight: 400;
+    }
+    .hero-tagline em { color: var(--red); }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .hero-bottom {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+    .scroll-line {
+      flex: 1;
+      height: 1px;
+      background: var(--ink);
+      position: relative;
+      max-width: 240px;
+    }
+    .scroll-line::after {
+      content: "";
+      position: absolute;
+      left: 0; top: -1px;
+      width: 40%; height: 3px;
+      background: var(--red);
+      animation: slide 2.4s ease-in-out infinite;
+    }
+    @keyframes slide {
+      0%   { left: 0; }
+      50%  { left: 60%; }
+      100% { left: 0; }
+    }
+
+    .hero-side-note {
+      position: absolute;
+      right: var(--gutter);
+      bottom: 2rem;
+      writing-mode: vertical-rl;
+      font-size: 0.66rem;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+    }
+    .hero-side-note span { color: var(--red); }
+
+    /* ============================================================
+       INTRO STRIP
+       ============================================================ */
+    .intro-strip {
+      background: var(--red);
+      color: var(--ivory);
+      padding: clamp(1.5rem, 3vw, 2.25rem) var(--gutter);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .intro-strip p {
+      font-family: var(--f-display);
+      font-size: clamp(1.4rem, 3.5vw, 2.6rem);
+      line-height: 1;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+    }
+    .intro-strip p span { color: var(--ink); }
+    .strip-index {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      opacity: 0.7;
+    }
+
+    /* ============================================================
+       ABOUT
+       ============================================================ */
+    .about-section { background: var(--paper); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: clamp(2rem, 5vw, 4.5rem);
+      align-items: start;
+    }
+
+    .portrait-wrap {
+      position: relative;
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, var(--red-soft), var(--ivory));
+      overflow: hidden;
+    }
+    .portrait-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: contrast(1.02) saturate(0.95);
+    }
+    .portrait-caption {
+      position: absolute;
+      left: 1rem; bottom: 1rem;
+      font-family: var(--f-hand);
+      font-size: 1.15rem;
+      color: var(--ivory);
+      text-shadow: 0 1px 6px rgba(0,0,0,0.45);
+      max-width: 70%;
+    }
+    .portrait-index {
+      position: absolute;
+      right: 1rem; top: 1rem;
+      background: var(--ink);
+      color: var(--ivory);
+      font-size: 0.66rem;
+      letter-spacing: 0.18em;
+      padding: 0.35rem 0.7rem;
+    }
+
+    .about-copy h2 {
+      font-family: var(--f-display);
+      font-weight: 400;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      margin: 0.6rem 0 1.5rem;
+      letter-spacing: -0.005em;
+    }
+    .about-copy h2 em { color: var(--red); }
+    .lead {
+      font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+      line-height: 1.45;
+      margin-bottom: 1.5rem;
+      max-width: 50ch;
+    }
+    .body-copy {
+      color: #333;
+      max-width: 52ch;
+      margin-bottom: 1.5rem;
+    }
+    blockquote {
+      border-left: 3px solid var(--red);
+      padding-left: 1.25rem;
+      font-family: var(--f-italic);
+      font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+      line-height: 1.4;
+      color: var(--charcoal);
+      margin: 1.5rem 0 0.5rem;
+      max-width: 48ch;
+    }
+    .quote-note {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+    }
+
+    .about-meta {
+      margin-top: clamp(2.5rem, 5vw, 4rem);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      border-top: 1px solid var(--line);
+      padding-top: clamp(1.5rem, 3vw, 2.25rem);
+    }
+    .about-meta div { display: flex; flex-direction: column; gap: 0.35rem; }
+    .about-meta span {
+      font-size: 0.66rem;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+    .about-meta strong { font-weight: 600; font-size: 0.95rem; }
+
+    /* ============================================================
+       INTERESTS
+       ============================================================ */
+    .interests-section { background: var(--charcoal); color: var(--ivory); }
+    .interests-heading { margin-bottom: clamp(2rem, 4vw, 3rem); max-width: 60ch; }
+    .interests-heading h2 {
+      font-family: var(--f-display);
+      font-weight: 400;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      margin: 0.6rem 0 1rem;
+    }
+    .interests-heading h2 em { color: var(--red); }
+    .interests-heading .eyebrow { color: var(--red); }
+    .interests-intro { color: rgba(244,239,230,0.72); max-width: 52ch; }
+
+    .interest-list { border-top: 1px solid var(--line-light); }
+    .interest-row {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: clamp(1rem, 3vw, 2.5rem);
+      padding: clamp(1.5rem, 3vw, 2.25rem) 0.5rem;
+      border-bottom: 1px solid var(--line-light);
+      transition: padding-left 0.35s ease, color 0.35s ease;
+      cursor: default;
+    }
+    .interest-row:hover { padding-left: 1.5rem; }
+    .interest-row:hover .interest-arrow { transform: translate(4px, -4px); color: var(--red); }
+    .interest-number {
+      font-family: var(--f-display);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      color: rgba(244,239,230,0.35);
+      transition: color 0.35s ease;
+    }
+    .interest-row:hover .interest-number { color: var(--red); }
+    .interest-row h3 {
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.3rem;
+    }
+    .interest-row p { color: rgba(244,239,230,0.6); font-size: 0.95rem; }
+    .interest-arrow { font-size: 1.4rem; transition: transform 0.35s ease, color 0.35s ease; }
+
+    /* ============================================================
+       PROJECTS
+       ============================================================ */
+    .projects-section { background: var(--paper); }
+    .projects-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: clamp(1.5rem, 4vw, 3rem);
+      align-items: end;
+      margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    }
+    .projects-heading h2 {
+      font-family: var(--f-display);
+      font-weight: 400;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      margin-top: 0.6rem;
+    }
+    .projects-heading h2 em { color: var(--red); }
+    .projects-intro { color: #444; max-width: 46ch; }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: clamp(1.25rem, 2.5vw, 2rem);
+    }
+    .project-feature { grid-column: 1 / -1; }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px -20px rgba(0,0,0,0.2);
+    }
+
+    .project-feature { flex-direction: row; }
+    .project-feature .project-visual { flex: 1; min-height: 340px; }
+    .project-feature .project-info   { flex: 1; }
+
+    .project-visual {
+      position: relative;
+      padding: clamp(1.5rem, 3vw, 2.25rem);
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+    .visual-red     { background: var(--red);     color: var(--ivory); }
+    .visual-ivory   { background: var(--ivory);   color: var(--ink); }
+    .visual-charcoal{ background: var(--charcoal);color: var(--ivory); }
+
+    .visual-mark {
+      font-family: var(--f-display);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1;
+      opacity: 0.9;
+    }
+    .visual-word {
+      font-family: var(--f-display);
+      font-weight: 400;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+    }
+    .dark-word { color: var(--ink); }
+    .visual-foot {
+      font-size: 0.66rem;
+      letter-spacing: 0.18em;
+      opacity: 0.8;
+    }
+    .dark-foot { color: var(--ink); opacity: 0.55; }
+
+    .project-info {
+      padding: clamp(1.5rem, 3vw, 2.25rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .project-status {
+      display: inline-block;
+      font-size: 0.64rem;
+      letter-spacing: 0.18em;
+      color: var(--red);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .project-info h3 {
+      font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+    .project-info p { color: #444; font-size: 0.95rem; }
+    .project-number {
+      font-family: var(--f-display);
+      font-size: 1.1rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    .project-meta {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      padding: 0.9rem clamp(1.5rem, 3vw, 2.25rem);
+      border-top: 1px solid var(--line);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+    .project-meta span::before { content: "— "; color: var(--red); }
+
+    .project-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      padding: 0 clamp(1.5rem, 3vw, 2.25rem) clamp(1.5rem, 3vw, 2.25rem);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+    .project-links a {
+      border-bottom: 1.5px solid var(--ink);
+      padding-bottom: 2px;
+      transition: color 0.25s ease, border-color 0.25s ease;
+    }
+    .project-links a:hover { color: var(--red); border-color: var(--red); }
+
+    /* ============================================================
+       HIGHLIGHTS / TIMELINE
+       ============================================================ */
+    .highlights-section { background: var(--ivory); }
+    .highlights-heading { max-width: 60ch; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+    .highlights-heading h2 {
+      font-family: var(--f-display);
+      font-weight: 400;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      margin: 0.6rem 0 1rem;
+    }
+    .highlights-heading h2 em { color: var(--red); }
+    .highlights-heading > p { color: #444; }
+
+    .timeline { position: relative; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: clamp(90px, 14vw, 150px);
+      top: 0; bottom: 0;
+      width: 1px;
+      background: var(--line);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: clamp(80px, 13vw, 140px) 1fr;
+      gap: clamp(1.25rem, 3vw, 2.5rem);
+      padding: clamp(1.5rem, 3vw, 2.25rem) 0;
+      position: relative;
+      border-bottom: 1px solid var(--line);
+    }
+    .timeline-item:last-child { border-bottom: none; }
+
+    .timeline-year {
+      font-family: var(--f-display);
+      font-size: clamp(1rem, 1.6vw, 1.3rem);
+      color: var(--red);
+      letter-spacing: 0.03em;
+    }
+    .timeline-type {
+      display: inline-block;
+      font-size: 0.66rem;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .timeline-item h3 {
+      font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .timeline-item p { color: #444; max-width: 56ch; }
+    .timeline-dot {
+      position: absolute;
+      left: clamp(84px, 13.8vw, 144px);
+      top: clamp(1.8rem, 3.4vw, 2.5rem);
+      width: 13px; height: 13px;
+      background: var(--paper);
+      border: 2px solid var(--red);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      transition: background 0.3s ease;
+    }
+    .timeline-item:hover .timeline-dot { background: var(--red); }
+
+    /* ============================================================
+       CONTACT
+       ============================================================ */
+    .contact-section {
+      background: var(--ink);
+      color: var(--ivory);
+      padding: var(--section-pad) var(--gutter);
+    }
+    .contact-topline {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      color: rgba(244,239,230,0.55);
+      padding-bottom: clamp(2rem, 5vw, 3.5rem);
+      border-bottom: 1px solid var(--line-light);
+      margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    }
+    .contact-topline span:first-child { color: var(--red); font-weight: 700; }
+    .contact-section .eyebrow { color: var(--red); }
+    .contact-section h2 {
+      font-family: var(--f-display);
+      font-weight: 400;
+      font-size: clamp(2.8rem, 8vw, 7rem);
+      line-height: 0.92;
+      text-transform: uppercase;
+      margin: 0.8rem 0 clamp(2rem, 5vw, 3.5rem);
+    }
+    .contact-section h2 em { color: var(--red); }
+
+    .contact-bottom {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+      gap: clamp(1.5rem, 4vw, 3rem);
+      align-items: end;
+      padding-bottom: clamp(2.5rem, 5vw, 4rem);
+      border-bottom: 1px solid var(--line-light);
+      margin-bottom: clamp(2rem, 4vw, 3rem);
+    }
+    .contact-bottom p { color: rgba(244,239,230,0.72); max-width: 48ch; font-size: 1.05rem; }
+    .contact-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--f-display);
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--red);
+      padding-bottom: 0.4rem;
+      transition: color 0.3s ease;
+      justify-self: end;
+    }
+    .contact-cta span { color: var(--red); transition: transform 0.3s ease; }
+    .contact-cta:hover span { transform: translate(4px, -4px); }
+
+    .social-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--line-light);
+    }
+    .social-list a {
+      background: var(--ink);
+      padding: clamp(1.25rem, 2.5vw, 1.75rem) 1rem;
+      font-family: var(--f-display);
+      font-size: clamp(1rem, 2vw, 1.6rem);
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .social-list a span { color: var(--red); transition: transform 0.3s ease; }
+    .social-list a:hover { background: var(--red); color: var(--ivory); }
+    .social-list a:hover span { color: var(--ivory); transform: translate(3px, -3px); }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .site-footer {
+      background: var(--red);
+      color: var(--ivory);
+      padding: clamp(3rem, 6vw, 5rem) var(--gutter) 1.5rem;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: center;
+      gap: 2rem;
+      padding-bottom: clamp(2rem, 4vw, 3rem);
+      border-bottom: 1px solid rgba(244,239,230,0.25);
+    }
+    .footer-brand {
+      font-family: var(--f-display);
+      font-weight: 400;
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+    }
+    .footer-brand span { color: var(--ink); font-size: 0.5em; }
+    .footer-top p {
+      font-family: var(--f-italic);
+      font-style: italic;
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      text-align: center;
+    }
+    .back-top {
+      justify-self: end;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      border-bottom: 1.5px solid var(--ivory);
+      padding-bottom: 3px;
+      transition: color 0.25s ease, border-color 0.25s ease;
+    }
+    .back-top:hover { color: var(--ink); border-color: var(--ink); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding-top: 1.5rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      color: rgba(244,239,230,0.8);
+    }
+
+    /* ============================================================
+       REVEAL ANIMATION
+       ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 980px) {
+      .about-grid        { grid-template-columns: 1fr; }
+      .about-meta        { grid-template-columns: repeat(2, 1fr); }
+      .projects-heading  { grid-template-columns: 1fr; }
+      .project-feature   { flex-direction: column; }
+      .project-feature .project-visual { min-height: 260px; }
+      .contact-bottom    { grid-template-columns: 1fr; }
+      .contact-cta       { justify-self: start; }
+      .social-list       { grid-template-columns: repeat(2, 1fr); }
+      .footer-top        { grid-template-columns: 1fr; text-align: center; }
+      .footer-brand, .back-top { justify-self: center; }
+    }
+
+    @media (max-width: 860px) {
+      .menu-toggle { display: flex; }
+      .header-note { display: none; }
+
+      /* Off-canvas panel. Hidden via opacity/visibility (NOT translateX) so the
+         panel's layout box stays at right:0, inside the viewport, and never
+         inflates the document's scrollWidth. translateX(100%) on a fixed
+         element is what caused the phantom horizontal scrollbar here. */
+      .primary-nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100dvh;
+        width: min(78vw, 340px);
+        flex-direction: column;
+        justify-content: center;
+        gap: 1.5rem;
+        padding: 5rem 2rem 2rem;
+        background: var(--ink);
+        color: var(--ivory);
+        font-size: 1.1rem;
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.35s ease, visibility 0.35s ease;
+        box-shadow: -20px 0 50px rgba(0, 0, 0, 0.25);
+        z-index: 95;
+      }
+      .primary-nav.is-open {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .primary-nav a::after { background: var(--red); }
+
+      .nav-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.35s ease, visibility 0.35s ease;
+        z-index: 94;
+      }
+      .nav-backdrop.is-open {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .hero-side-note { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 span:nth-child(2),
+      .hero h1 span:nth-child(3) { padding-left: 0; }
+      .hero h1 span:nth-child(2) { color: var(--red); }
+      .project-grid       { grid-template-columns: 1fr; }
+      .about-meta         { grid-template-columns: 1fr; }
+      .timeline::before,
+      .timeline-dot       { display: none; }
+      .timeline-item      { grid-template-columns: 1fr; gap: 0.75rem; }
+      .footer-bottom      { flex-direction: column; gap: 0.5rem; }
+      .intro-strip        { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+    }
+  </style>
 </head>
-
 <body>
 
-    <!-- NAVIGATION -->
-    <nav>
-        <a href="#" class="logo">S<span>.</span>J.D</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#values">Values</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+  <!-- HEADER -->
+  <header class="site-header" id="top">
 
-        <span class="nav-number">001 — 2026</span>
+    <a class="wordmark" href="#home" aria-label="Sean Julian Danendra, home">
+      SJD<span>®</span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="primary-nav"
+    >
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+      <a href="#home">HOME</a>
+      <a href="#about">ABOUT</a>
+      <a href="#interests">INTERESTS</a>
+      <a href="#projects">PROJECTS</a>
+      <a href="#highlights">HIGHLIGHTS</a>
+      <a href="#contact">CONTACT</a>
     </nav>
 
-    <!-- HERO -->
-    <header class="hero">
+    <span class="header-note">
+      PERSONAL PORTFOLIO <i></i>
+    </span>
 
-        <div class="hero-top">
-            <span class="eyebrow">Personal Portfolio / 2026</span>
-            <span class="availability">Always evolving</span>
-        </div>
+  </header>
 
-        <div class="hero-title reveal">
-            <span>Sean Julian</span>
-            <span class="second">Danendra.</span>
-        </div>
+  <!-- Dimmed backdrop for the mobile off-canvas nav (toggled with the menu). -->
+  <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
 
-        <div class="hero-bottom">
+  <main id="main" tabindex="-1">
 
-            <p class="hero-description">
-                An individual driven by curiosity, creativity,
-                and the desire to explore possibilities.
-                Always learning, always becoming.
-            </p>
+    <!-- HERO SECTION -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
 
-            <span class="signature">Sean Julian</span>
+      <div class="hero-topline">
+        <span>INDEPENDENT MINDSET</span>
+        <span>EST. — ALWAYS EVOLVING</span>
+      </div>
 
-            <span class="scroll-indicator">Scroll to explore ↓</span>
+      <div class="hero-content">
 
-        </div>
-
-    </header>
-
-    <div class="line"></div>
-
-    <!-- ABOUT -->
-    <section id="about">
-
-        <div class="section-label reveal">
-            01 / A little introduction
-        </div>
-
-        <div class="about-grid">
-
-            <h2 class="about-title reveal">
-                A story of <em>growth</em>, curiosity & becoming.
-            </h2>
-
-            <div class="about-content reveal">
-
-                <p>
-                    Hello, I'm <strong>Sean Julian Danendra.</strong>
-                    Welcome to my personal space — a reflection
-                    of who I am, what I value, and the person
-                    I aspire to become.
-                </p>
-
-                <p>
-                    I believe that life is a continuous journey
-                    of discovery. Every experience, challenge,
-                    and opportunity offers something meaningful
-                    to learn.
-                </p>
-
-                <p>
-                    I enjoy exploring new perspectives,
-                    developing ideas, and discovering ways
-                    to turn curiosity into meaningful progress.
-                </p>
-
-                <span class="signature">Nice to meet you.</span>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- QUOTE -->
-    <section class="quote-section">
-
-        <div class="quote-mark">“</div>
-
-        <h2 class="quote-text reveal">
-            Becoming the best version of yourself
-            is a journey, not a destination.
-        </h2>
-
-        <p class="quote-author">
-            A personal philosophy — Sean Julian Danendra
+        <p class="eyebrow hero-eyebrow">
+          A PERSONAL SPACE BY
         </p>
 
-    </section>
+        <h1 id="hero-title">
+          <span>SEAN</span>
+          <span>JULIAN</span>
+          <span>DANENDRA</span>
+        </h1>
 
-    <!-- VALUES -->
-    <section id="values">
+        <p class="hero-tagline">
+          Curious by nature.
+          <em>Creative by perspective.</em>
+          <br>
+          Driven by growth.
+        </p>
 
-        <div class="section-label reveal">
-            02 / What I believe in
-        </div>
+        <div class="hero-actions">
 
-        <div class="values-grid">
+          <a class="button button-light" href="#about">
+            EXPLORE MY WORLD <span>↘</span>
+          </a>
 
-            <div class="value-card reveal">
-                <span class="value-number">01.</span>
-                <h3>Curiosity</h3>
-                <p>
-                    Always asking questions, exploring ideas,
-                    and finding inspiration in the world around me.
-                </p>
-            </div>
-
-            <div class="value-card reveal">
-                <span class="value-number">02.</span>
-                <h3>Growth</h3>
-                <p>
-                    Embracing challenges and continuously
-                    improving through every experience.
-                </p>
-            </div>
-
-            <div class="value-card reveal">
-                <span class="value-number">03.</span>
-                <h3>Creativity</h3>
-                <p>
-                    Expressing ideas, thinking differently,
-                    and finding beauty in meaningful details.
-                </p>
-            </div>
+          <a class="text-link light-link" href="#contact">
+            GET IN TOUCH <span>↗</span>
+          </a>
 
         </div>
+
+      </div>
+
+      <div class="hero-bottom">
+        <span>SCROLL TO DISCOVER</span>
+        <span class="scroll-line"></span>
+        <span>01 / 06</span>
+      </div>
+
+      <span class="hero-side-note">
+        JAKARTA, INDONESIA <span>·</span> PERSONAL PORTFOLIO
+      </span>
 
     </section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="skills-section">
+    <!-- INTRODUCTION STRIP -->
+    <section class="intro-strip" aria-label="Introduction">
 
-        <div class="section-label reveal">
-            03 / Things I explore
+      <p>
+        AN OPEN MIND.
+        <span>AN ONGOING STORY.</span> A WORLD OF POSSIBILITIES.
+      </p>
+
+      <span class="strip-index">SJD — 001</span>
+
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section about-section" id="about">
+
+      <div class="section-kicker">
+        <span>01 / ABOUT</span>
+        <span>THE PERSON BEHIND THE NAME</span>
+      </div>
+
+      <div class="about-grid">
+
+        <div class="portrait-wrap reveal">
+
+          <img
+            src="assets/images/profile-sean.jpg"
+            alt="Portrait of Sean Julian Danendra"
+            width="432"
+            height="432"
+            fetchpriority="high"
+            onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 432 432%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%23E8D6D8%22/%3E%3Cstop offset=%221%22 stop-color=%22%23B5091B%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%22432%22 height=%22432%22 fill=%22url(%23g)%22/%3E%3Ctext x=%22216%22 y=%22230%22 font-family=%22Arial,sans-serif%22 font-size=%22120%22 font-weight=%22bold%22 text-anchor=%22middle%22 fill=%22%23F4EFE6%22%3ESJD%3C/text%3E%3Ctext x=%22216%22 y=%22280%22 font-family=%22Arial,sans-serif%22 font-size=%2222%22 letter-spacing=%224%22 text-anchor=%22middle%22 fill=%22%23F4EFE6%22 opacity=%220.8%22%3EPORTRAIT%3C/text%3E%3C/svg%3E';"
+          >
+
+          <span class="portrait-caption">
+            A MOMENT, A MEMORY, A BEGINNING.
+          </span>
+
+          <span class="portrait-index">FIG. 01</span>
+
         </div>
 
-        <h2 class="skills-heading reveal">
-            Interests & Skills.
+        <div class="about-copy reveal">
+
+          <p class="eyebrow">
+            A LITTLE INTRODUCTION
+          </p>
+
+          <h2>
+            MORE THAN
+            <br>
+            JUST A <em>NAME.</em>
+          </h2>
+
+          <p class="lead">
+            Every individual has a story shaped by curiosity,
+            experiences, perspectives, and the willingness to keep growing.
+          </p>
+
+          <p class="body-copy">
+            I'm Sean Julian Danendra, an individual driven by curiosity,
+            creativity, and a passion for continuous growth.
+
+            I enjoy exploring technology, discovering new perspectives,
+            and turning ideas into meaningful experiences.
+
+            This is a space to bring together the things I'm learning,
+            the ideas I'm exploring, and the work I choose to share.
+          </p>
+
+          <blockquote>
+            “I believe growth comes from curiosity, consistency,
+            and the courage to explore what is possible.”
+          </blockquote>
+
+          <p class="quote-note">
+            A PERSONAL GUIDING THOUGHT
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="about-meta">
+
+        <div>
+          <span>NAME</span>
+          <strong>Sean Julian Danendra</strong>
+        </div>
+
+        <div>
+          <span>BASED IN</span>
+          <strong>Jakarta, Indonesia</strong>
+        </div>
+
+        <div>
+          <span>CURRENT CHAPTER</span>
+          <strong>Exploring, Learning &amp; Building</strong>
+        </div>
+
+        <div>
+          <span>EDUCATION</span>
+          <strong>Continuous Learning &amp; Self-Development</strong>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- INTERESTS SECTION -->
+    <section class="interests-section section" id="interests">
+
+      <div class="section-kicker light-kicker">
+        <span>02 / INTERESTS</span>
+        <span>AREAS OF CURIOSITY</span>
+      </div>
+
+      <div class="interests-heading">
+
+        <p class="eyebrow">
+          A WORK IN PROGRESS
+        </p>
+
+        <h2>
+          WHAT I'M
+          <br>
+          <em>INTO.</em>
         </h2>
 
-        <div class="skills-list reveal">
+        <p class="interests-intro">
+          A collection of interests that reflect my curiosity
+          about technology, creativity, personal development,
+          and the endless possibilities of learning.
+        </p>
 
-            <span class="skill">Creative Thinking</span>
-            <span class="skill">Communication</span>
-            <span class="skill">Problem Solving</span>
-            <span class="skill">Leadership</span>
-            <span class="skill">Adaptability</span>
-            <span class="skill">Continuous Learning</span>
+      </div>
 
-        </div>
+      <div class="interest-list">
+
+        <article class="interest-row reveal">
+
+          <span class="interest-number">01</span>
+
+          <div>
+            <h3>TECHNICAL</h3>
+            <p>
+              Web Development · Programming · Front-End Technologies ·
+              Digital Innovation
+            </p>
+          </div>
+
+          <span class="interest-arrow">↗</span>
+
+        </article>
+
+        <article class="interest-row reveal">
+
+          <span class="interest-number">02</span>
+
+          <div>
+            <h3>CREATIVE</h3>
+            <p>
+              UI/UX Design · Visual Design · Digital Creativity ·
+              Creative Problem-Solving
+            </p>
+          </div>
+
+          <span class="interest-arrow">↗</span>
+
+        </article>
+
+        <article class="interest-row reveal">
+
+          <span class="interest-number">03</span>
+
+          <div>
+            <h3>PERSONAL</h3>
+            <p>
+              Self-Development · Psychology · Lifelong Learning ·
+              New Experiences
+            </p>
+          </div>
+
+          <span class="interest-arrow">↗</span>
+
+        </article>
+
+      </div>
 
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="contact">
+    <!-- PROJECTS SECTION -->
+    <section class="section projects-section" id="projects">
 
-        <div class="section-label reveal">
-            04 / Let's connect
+      <div class="section-kicker">
+        <span>03 / PROJECTS</span>
+        <span>SELECTED WORK &amp; EXPLORATIONS</span>
+      </div>
+
+      <div class="projects-heading">
+
+        <div>
+
+          <p class="eyebrow">
+            IDEAS INTO SOMETHING REAL
+          </p>
+
+          <h2>
+            THINGS I'VE
+            <br>
+            <em>EXPLORED.</em>
+          </h2>
+
         </div>
 
-        <h2 class="reveal">
-            Every story<br>
-            starts <em>somewhere.</em>
+        <p class="projects-intro">
+          A collection of personal projects, creative experiments,
+          and digital explorations. Every project is an opportunity
+          to learn, create, and discover something new.
+        </p>
+
+      </div>
+
+      <div class="project-grid">
+
+        <!-- PROJECT 01 -->
+        <article class="project-card project-feature reveal">
+
+          <div class="project-visual visual-red">
+
+            <span class="visual-mark">01</span>
+
+            <span class="visual-word">
+              IDEAS
+              <br>
+              INTO
+              <br>
+              REALITY.
+            </span>
+
+            <span class="visual-foot">
+              PERSONAL DIGITAL IDENTITY
+            </span>
+
+          </div>
+
+          <div class="project-info">
+
+            <div>
+
+              <span class="project-status">
+                PERSONAL PROJECT
+              </span>
+
+              <h3>Personal Portfolio Website</h3>
+
+              <p>
+                A personal portfolio website designed to introduce
+                Sean Julian Danendra, showcase personal interests,
+                document creative explorations, and share an ongoing
+                journey of learning and growth.
+              </p>
+
+            </div>
+
+            <span class="project-number">01 / 03</span>
+
+          </div>
+
+          <div class="project-meta">
+            <span>Web Development</span>
+            <span>HTML · CSS · JavaScript</span>
+          </div>
+
+          <div class="project-links">
+
+            <a
+              href="https://github.com/seanjuliandanendra/seanjuliandanendra"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              VIEW SOURCE CODE ↗
+            </a>
+
+            <a href="#contact">
+              GET IN TOUCH ↗
+            </a>
+
+          </div>
+
+        </article>
+
+        <!-- PROJECT 02 -->
+        <article class="project-card reveal">
+
+          <div class="project-visual visual-ivory">
+
+            <span class="visual-mark">02</span>
+
+            <span class="visual-word dark-word">
+              BUILD.
+              <br>
+              CREATE.
+              <br>
+              EXPLORE.
+            </span>
+
+            <span class="visual-foot dark-foot">
+              A JOURNEY OF EXPERIMENTATION
+            </span>
+
+          </div>
+
+          <div class="project-info">
+
+            <div>
+
+              <span class="project-status">
+                LEARNING &amp; EXPERIMENTATION
+              </span>
+
+              <h3>Web Development Experiments</h3>
+
+              <p>
+                Exploring website development, responsive layouts,
+                interactive interfaces, and modern approaches to
+                creating accessible digital experiences.
+              </p>
+
+            </div>
+
+            <span class="project-number">02 / 03</span>
+
+          </div>
+
+          <div class="project-meta">
+            <span>Digital Exploration</span>
+            <span>Front-End Development</span>
+          </div>
+
+          <div class="project-links">
+
+            <a
+              href="https://github.com/seanjuliandanendra"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              EXPLORE GITHUB ↗
+            </a>
+
+            <a href="#contact">
+              GET IN TOUCH ↗
+            </a>
+
+          </div>
+
+        </article>
+
+        <!-- PROJECT 03 -->
+        <article class="project-card reveal">
+
+          <div class="project-visual visual-charcoal">
+
+            <span class="visual-mark">03</span>
+
+            <span class="visual-word">
+              THINK.
+              <br>
+              DESIGN.
+              <br>
+              GROW.
+            </span>
+
+            <span class="visual-foot">
+              CREATIVITY WITHOUT LIMITS
+            </span>
+
+          </div>
+
+          <div class="project-info">
+
+            <div>
+
+              <span class="project-status">
+                CREATIVE EXPLORATION
+              </span>
+
+              <h3>Creative &amp; Digital Explorations</h3>
+
+              <p>
+                Exploring the intersection of creativity,
+                technology, and visual communication through
+                ideas, digital tools, and continuous experimentation.
+              </p>
+
+            </div>
+
+            <span class="project-number">03 / 03</span>
+
+          </div>
+
+          <div class="project-meta">
+            <span>Creative Exploration</span>
+            <span>Digital Creativity</span>
+          </div>
+
+          <div class="project-links">
+
+            <a href="#contact">
+              MORE INFORMATION ↗
+            </a>
+
+            <a href="#contact">
+              GET IN TOUCH ↗
+            </a>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- HIGHLIGHTS SECTION -->
+    <section class="highlights-section section" id="highlights">
+
+      <div class="section-kicker">
+        <span>04 / HIGHLIGHTS</span>
+        <span>THE JOURNEY SO FAR</span>
+      </div>
+
+      <div class="highlights-heading">
+
+        <p class="eyebrow">
+          NO FINISH LINE, JUST FORWARD
+        </p>
+
+        <h2>
+          EVERY STEP
+          <br>
+          <em>COUNTS.</em>
         </h2>
 
         <p>
-            Thank you for visiting my little corner of the internet.
+          Growth is not always measured by milestones.
+          Sometimes, it is found in small steps, meaningful lessons,
+          and the courage to keep moving forward.
         </p>
 
-        <a href="mailto:your-email@example.com" class="contact-button">
-            Get in touch ↗
-        </a>
+      </div>
 
-        <br><br>
+      <div class="timeline">
 
-        <span class="signature">Sean Julian Danendra</span>
+        <article class="timeline-item reveal">
+
+          <span class="timeline-year">ONGOING</span>
+
+          <div>
+
+            <span class="timeline-type">
+              PERSONAL DEVELOPMENT
+            </span>
+
+            <h3>A Journey of Continuous Learning</h3>
+
+            <p>
+              Exploring new knowledge, developing perspectives,
+              and embracing opportunities for personal and
+              intellectual growth.
+            </p>
+
+          </div>
+
+          <span class="timeline-dot"></span>
+
+        </article>
+
+        <article class="timeline-item reveal">
+
+          <span class="timeline-year">ONGOING</span>
+
+          <div>
+
+            <span class="timeline-type">
+              TECHNOLOGY &amp; CREATIVITY
+            </span>
+
+            <h3>Exploring the Digital World</h3>
+
+            <p>
+              Developing an interest in technology, web development,
+              digital creativity, and the possibilities of building
+              meaningful digital experiences.
+            </p>
+
+          </div>
+
+          <span class="timeline-dot"></span>
+
+        </article>
+
+        <article class="timeline-item reveal">
+
+          <span class="timeline-year">ONGOING</span>
+
+          <div>
+
+            <span class="timeline-type">
+              PERSONAL BRANDING
+            </span>
+
+            <h3>Building My Personal Portfolio</h3>
+
+            <p>
+              Creating a digital space to document interests,
+              showcase selected work, share ideas, and represent
+              an evolving personal journey.
+            </p>
+
+          </div>
+
+          <span class="timeline-dot"></span>
+
+        </article>
+
+      </div>
 
     </section>
 
-    <!-- FOOTER -->
-    <footer>
+    <!-- CONTACT SECTION -->
+    <section class="contact-section" id="contact">
 
-        <p>© 2026 SEAN JULIAN DANENDRA</p>
+      <div class="contact-topline">
 
-        <span class="footer-signature">Sincerely, Sean.</span>
+        <span>05 / CONTACT</span>
+        <span>OPEN TO GOOD CONVERSATIONS</span>
 
-        <p>MADE WITH INTENTION & CURIOSITY.</p>
+      </div>
 
-    </footer>
+      <p class="eyebrow">
+        HAVE SOMETHING IN MIND?
+      </p>
 
-    <!-- JAVASCRIPT -->
-    <script>
+      <h2>
+        LET'S MAKE
+        <br>
+        SOMETHING <em>MEANINGFUL.</em>
+      </h2>
 
-        const observer = new IntersectionObserver((entries) => {
+      <div class="contact-bottom">
 
-            entries.forEach(entry => {
+        <p>
+          Have an idea, an interesting opportunity,
+          or simply want to connect?
 
-                if (entry.isIntersecting) {
+          I'm always open to meaningful conversations,
+          new perspectives, and opportunities to learn.
+        </p>
 
-                    entry.target.classList.add('active');
+        <a class="contact-cta" href="#social-links">
+          LET'S CONNECT <span>↗</span>
+        </a>
 
-                    observer.unobserve(entry.target);
+      </div>
 
-                }
+      <div class="social-list" id="social-links">
 
-            });
+        <!-- TODO: replace href with a real mailto: address once known. -->
+        <a href="mailto:hello@seanjuliandanendra.com" aria-label="Email Sean Julian Danendra">
+          EMAIL <span>↗</span>
+        </a>
 
-        }, {
-            threshold: 0.12
+        <a
+          href="https://github.com/seanjuliandanendra"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Sean Julian Danendra on GitHub (opens in a new tab)"
+        >
+          GITHUB <span>↗</span>
+        </a>
+
+        <!-- FIX: the original aria-label said "LinkedIn profile to be updated"
+             but the href points to Facebook. Corrected label below. -->
+        <a
+          href="https://www.facebook.com/profile.php?id=61596807389967"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Sean Julian Danendra on Facebook (opens in a new tab)"
+        >
+          FACEBOOK <span>↗</span>
+        </a>
+
+        <!-- TODO: replace href with the real Instagram URL once known. -->
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Sean Julian Danendra on Instagram (opens in a new tab) — link to be updated"
+        >
+          INSTAGRAM <span>↗</span>
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+
+    <div class="footer-top">
+
+      <a class="footer-brand" href="#home">
+        SEAN JULIAN
+        <br>
+        DANENDRA<span>®</span>
+      </a>
+
+      <p>
+        THANK YOU
+        <br>
+        FOR BEING HERE.
+      </p>
+
+      <a class="back-top" href="#top">
+        BACK TO TOP ↑
+      </a>
+
+    </div>
+
+    <div class="footer-bottom">
+
+      <span>
+        © <span id="year"></span> SEAN JULIAN DANENDRA
+      </span>
+
+      <span>
+        DESIGNED WITH INTENTION.
+      </span>
+
+      <span>
+        JAKARTA, INDONESIA
+      </span>
+
+    </div>
+
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // ---- Current year in footer ----
+      var yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // ---- Mobile menu toggle ----
+      var toggle = document.querySelector('.menu-toggle');
+      var nav = document.getElementById('primary-nav');
+      var backdrop = document.getElementById('nav-backdrop');
+
+      function closeMenu() {
+        if (!nav || !toggle) return;
+        nav.classList.remove('is-open');
+        toggle.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open navigation');
+        if (backdrop) backdrop.classList.remove('is-open');
+      }
+
+      if (toggle && nav) {
+        toggle.addEventListener('click', function () {
+          var open = nav.classList.toggle('is-open');
+          toggle.classList.toggle('is-open', open);
+          toggle.setAttribute('aria-expanded', String(open));
+          toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+          if (backdrop) backdrop.classList.toggle('is-open', open);
         });
 
-        document.querySelectorAll('.reveal').forEach(element => {
-            observer.observe(element);
+        // Close the menu after picking a link.
+        nav.querySelectorAll('a').forEach(function (a) {
+          a.addEventListener('click', closeMenu);
         });
 
-    </script>
+        // Click the dimmed backdrop to close.
+        if (backdrop) backdrop.addEventListener('click', closeMenu);
+
+        // Close on Escape.
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') closeMenu();
+        });
+      }
+
+      // ---- Reveal-on-scroll ----
+      var revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+        revealEls.forEach(function (el) { io.observe(el); });
+      } else {
+        revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+      }
+
+      // ---- Active nav link based on the section in view ----
+      var sections = document.querySelectorAll('main section[id]');
+      var navLinks = document.querySelectorAll('.primary-nav a');
+      if ('IntersectionObserver' in window && sections.length) {
+        var spy = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var id = entry.target.id;
+              navLinks.forEach(function (link) {
+                link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
+              });
+            }
+          });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+        sections.forEach(function (s) { spy.observe(s); });
+      }
+    })();
+  </script>
 
 </body>
 </html>
