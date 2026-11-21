@@ -1,0 +1,83 @@
+/* ==========================================================================
+   Sean Julian Danendra — Responsive layout
+   Loaded after style.css. Desktop-first breakpoints:
+   1439 laptop, 1023 tablet landscape, 959 menu switch, 767 mobile, 479 / 374 small mobile.
+   ========================================================================== */
+
+/* ---------- Large screens (1440px and above) ---------- */
+@media (min-width: 1440px) {
+  :root { --max: 1440px; }
+}
+
+/* ---------- Tablet landscape and below ---------- */
+@media (max-width: 1023px) {
+  .hero__cover { aspect-ratio: 16 / 9; }
+
+  .about__portrait { grid-column: 1 / span 6; }
+  .about__text { grid-column: 7 / -1; }
+
+  .project--a { grid-column: 1 / span 9; }
+  .project--b { grid-column: 4 / -1; margin-top: 0; }
+  .project--b .project__thumb { aspect-ratio: 16 / 10; }
+  .project--c { grid-column: 1 / span 9; }
+}
+
+/* ---------- Switch to the hamburger menu ---------- */
+@media (max-width: 959px) {
+  .nav__links { display: none; }
+  .nav__toggle { display: block; }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 767px) {
+  :root { --nav-h: 4rem; }
+
+  /* Hero: reserve room for the nav so it never covers the banner lettering */
+  .hero { padding-top: var(--nav-h); }
+  .hero__cover { aspect-ratio: 3 / 2; min-height: 0; max-height: none; }
+  .hero__banner { top: 0; height: 100%; transform: none; }
+  .hero__tagline { font-size: 7.4vw; }
+  .hero__line--2 { margin-left: 1rem; }
+  .hero__line--3 { margin-left: 2rem; }
+  .hero__side { flex-direction: column; align-items: stretch; }
+  .hero__actions .btn { flex: 1 1 100%; }
+  .hero__meta { flex-wrap: wrap; gap: .25rem 1.25rem; }
+  .hero__label--place { flex-basis: 100%; order: 3; }
+
+  /* About: portrait first, then text, single column */
+  .about__grid { display: block; }
+  .about__portrait { position: static; max-width: 24rem; margin-bottom: 3rem; }
+  .about__text { padding-top: 0; }
+
+  /* Interests */
+  .interests__grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .topic__num { font-size: 5.5rem; }
+
+  /* Projects */
+  .projects__grid { display: flex; flex-direction: column; gap: 3.5rem; }
+  .project__thumb, .project--b .project__thumb { aspect-ratio: 16 / 10; }
+
+  /* Timeline: year on top, line on the left */
+  .milestone { grid-template-columns: 1.75rem 1fr; }
+  .milestone::before { left: .45rem; }
+  .milestone::after { top: 2.5rem; left: calc(.45rem - 6px); }
+  .milestone__year { grid-column: 2; }
+  .milestone__body { grid-column: 2; margin-top: .75rem; }
+
+  /* Footer */
+  .footer__row { flex-direction: column; align-items: flex-start; }
+}
+
+/* ---------- Small mobile ---------- */
+@media (max-width: 479px) {
+  .meta { grid-template-columns: 1fr; }
+  .kicker::before { width: 1.75rem; }
+  .contact__links { flex-direction: column; }
+}
+
+@media (max-width: 374px) {
+  :root { --gutter: 1rem; }
+  .nav__brand { font-size: 1rem; letter-spacing: .04em; }
+  .about__caption { flex-direction: column; align-items: flex-start; gap: .25rem; }
+  .btn { padding-inline: 1rem; letter-spacing: .1em; }
+}
