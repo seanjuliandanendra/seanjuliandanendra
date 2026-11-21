@@ -1,771 +1,740 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f9f4eb">
 
-  <meta name="theme-color" content="#B5091B">
-  <meta name="description" content="Discover the personal portfolio of Sean Julian Danendra, an independent learner and creative explorer interested in technology, web development, digital creativity, and continuous personal growth.">
+    <title>Sean Julian Danendra — Personal Profile</title>
 
-  <meta name="keywords" content="Sean Julian Danendra, Sean Julian Danendra portfolio, personal portfolio Indonesia, web development, technology, digital creativity, personal development, Jakarta Indonesia">
+    <meta name="description" content="The personal portfolio of Sean Julian Danendra. A space for curiosity, creativity, exploration, and continuous growth.">
 
-  <meta name="author" content="Sean Julian Danendra">
-  <meta name="robots" content="index, follow">
-  <meta name="googlebot" content="index, follow">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:title" content="Sean Julian Danendra | Personal Portfolio">
-  <meta property="og:description" content="Curious by nature. Creative by perspective. Driven by growth. Explore my interests, projects, and journey.">
-  <meta property="og:image" content="assets/images/brand-banner.png">
-  <meta property="og:image:alt" content="Sean Julian Danendra personal portfolio brand banner">
+    <link href="https://fonts.googleapis.com/css2?family=Amsterdam+One&family=DM+Serif+Display&family=Poppins:wght@300;400;500;600;700&family=Allura&display=swap" rel="stylesheet">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Sean Julian Danendra | Personal Portfolio">
-  <meta name="twitter:description" content="A personal space for technology, creativity, exploration, and continuous growth.">
-  <meta name="twitter:image" content="assets/images/brand-banner.png">
+    <style>
+        :root {
+            --red: #c00203;
+            --cream: #f9f4eb;
+            --black: #000000;
+            --gray: #77716a;
+            --border: rgba(0,0,0,0.13);
 
-  <title>Sean Julian Danendra | Personal Portfolio</title>
+            --sans: 'Poppins', sans-serif;
+            --serif: 'Times New Roman', serif;
+            --script: 'Allura', cursive;
+        }
 
-  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        html {
+            scroll-behavior: smooth;
+        }
 
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@500;600&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+        body {
+            background: var(--cream);
+            color: var(--black);
+            font-family: var(--sans);
+            overflow-x: hidden;
+        }
 
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/responsive.css">
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-  <script defer src="js/main.js"></script>
+        /* NAVIGATION */
+
+        nav {
+            width: 100%;
+            padding: 26px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-family: var(--serif);
+            font-size: 23px;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--red);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--red);
+        }
+
+        .nav-number {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 13px;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            padding: 150px 8% 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .eyebrow {
+            font-size: 10px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--red);
+        }
+
+        .availability {
+            font-size: 10px;
+            letter-spacing: 1px;
+            color: var(--gray);
+        }
+
+        .availability::before {
+            content: "";
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--red);
+            margin-right: 9px;
+        }
+
+        .hero-title {
+            font-family: var(--serif);
+            font-weight: 400;
+            font-size: clamp(65px, 11vw, 155px);
+            line-height: 0.86;
+            letter-spacing: -7px;
+            text-transform: uppercase;
+        }
+
+        .hero-title span {
+            display: block;
+        }
+
+        .hero-title .second {
+            color: var(--red);
+            font-style: italic;
+            margin-left: 12%;
+        }
+
+        .hero-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 65px;
+        }
+
+        .hero-description {
+            max-width: 330px;
+            font-size: 12px;
+            line-height: 2;
+            color: var(--gray);
+        }
+
+        .signature {
+            font-family: var(--script);
+            color: var(--red);
+            font-size: 48px;
+            transform: rotate(-8deg);
+        }
+
+        .scroll-indicator {
+            font-size: 9px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            writing-mode: vertical-rl;
+        }
+
+        /* DIVIDER */
+
+        .line {
+            height: 1px;
+            background: var(--border);
+            margin: 0 8%;
+        }
+
+        /* ABOUT */
+
+        section {
+            padding: 120px 8%;
+        }
+
+        .section-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--red);
+            margin-bottom: 35px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .about-title {
+            font-family: var(--serif);
+            font-weight: 400;
+            font-size: clamp(45px, 6vw, 80px);
+            line-height: 1.05;
+        }
+
+        .about-title em {
+            color: var(--red);
+        }
+
+        .about-content {
+            padding-top: 15px;
+        }
+
+        .about-content p {
+            font-size: 13px;
+            line-height: 2.2;
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+
+        .about-content strong {
+            color: var(--black);
+            font-weight: 500;
+        }
+
+        /* PERSONAL QUOTE */
+
+        .quote-section {
+            background: var(--red);
+            color: var(--cream);
+            text-align: center;
+            padding: 115px 12%;
+        }
+
+        .quote-mark {
+            font-family: var(--serif);
+            font-size: 80px;
+            line-height: 0.7;
+        }
+
+        .quote-text {
+            font-family: var(--serif);
+            font-size: clamp(30px, 5vw, 62px);
+            line-height: 1.2;
+            font-style: italic;
+            font-weight: 400;
+            margin: 35px auto;
+            max-width: 900px;
+        }
+
+        .quote-author {
+            font-size: 9px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* VALUES */
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .value-card {
+            border-top: 1px solid var(--black);
+            padding: 25px 5px;
+            transition: 0.3s;
+        }
+
+        .value-card:hover {
+            border-color: var(--red);
+            transform: translateY(-5px);
+        }
+
+        .value-number {
+            font-family: var(--serif);
+            font-size: 16px;
+            color: var(--red);
+        }
+
+        .value-card h3 {
+            font-family: var(--serif);
+            font-size: 29px;
+            font-weight: 400;
+            margin: 45px 0 15px;
+        }
+
+        .value-card p {
+            color: var(--gray);
+            font-size: 11px;
+            line-height: 2;
+        }
+
+        /* SKILLS */
+
+        .skills-section {
+            background: #eee7dc;
+        }
+
+        .skills-heading {
+            font-family: var(--serif);
+            font-size: clamp(45px, 7vw, 85px);
+            font-weight: 400;
+            margin-bottom: 60px;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill {
+            border: 1px solid rgba(0,0,0,0.25);
+            border-radius: 50px;
+            padding: 13px 25px;
+            font-size: 11px;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            background: var(--red);
+            border-color: var(--red);
+            color: var(--cream);
+        }
+
+        /* CONTACT */
+
+        .contact {
+            text-align: center;
+            padding: 140px 8%;
+        }
+
+        .contact h2 {
+            font-family: var(--serif);
+            font-weight: 400;
+            font-size: clamp(55px, 9vw, 115px);
+            line-height: 1;
+        }
+
+        .contact h2 em {
+            color: var(--red);
+        }
+
+        .contact p {
+            font-size: 11px;
+            color: var(--gray);
+            margin: 30px 0;
+        }
+
+        .contact-button {
+            display: inline-block;
+            background: var(--red);
+            color: var(--cream);
+            padding: 17px 38px;
+            border-radius: 50px;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .contact-button:hover {
+            background: var(--black);
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 30px 8%;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        footer p {
+            font-size: 9px;
+            color: var(--gray);
+            letter-spacing: 1px;
+        }
+
+        .footer-signature {
+            font-family: var(--script);
+            font-size: 30px;
+            color: var(--red);
+        }
+
+        /* ANIMATION */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 768px) {
+
+            nav {
+                padding: 22px 6%;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-links a {
+                font-size: 8px;
+                letter-spacing: 1px;
+            }
+
+            .nav-number {
+                display: none;
+            }
+
+            .hero {
+                padding: 150px 6% 70px;
+            }
+
+            .hero-title {
+                font-size: clamp(55px, 13vw, 100px);
+                letter-spacing: -3px;
+            }
+
+            .hero-title .second {
+                margin-left: 5%;
+            }
+
+            .hero-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 35px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            section {
+                padding: 85px 6%;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .value-card h3 {
+                margin: 25px 0 10px;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .availability {
+                font-size: 8px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .nav-links {
+                gap: 9px;
+            }
+
+            .nav-links a {
+                font-size: 7px;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
 
-  <a class="skip-link" href="#main">Skip to content</a>
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="#" class="logo">S<span>.</span>J.D</a>
 
-  <!-- HEADER -->
-  <header class="site-header" id="top">
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#values">Values</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
 
-    <a class="wordmark" href="#home" aria-label="Sean Julian Danendra, home">
-      SJD<span>®</span>
-    </a>
-
-    <button
-      class="menu-toggle"
-      type="button"
-      aria-label="Open navigation"
-      aria-expanded="false"
-      aria-controls="primary-nav"
-    >
-      <span></span>
-      <span></span>
-    </button>
-
-    <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
-      <a href="#home">HOME</a>
-      <a href="#about">ABOUT</a>
-      <a href="#interests">INTERESTS</a>
-      <a href="#projects">PROJECTS</a>
-      <a href="#highlights">HIGHLIGHTS</a>
-      <a href="#contact">CONTACT</a>
+        <span class="nav-number">001 — 2026</span>
     </nav>
 
-    <span class="header-note">
-      PERSONAL PORTFOLIO <i></i>
-    </span>
+    <!-- HERO -->
+    <header class="hero">
 
-  </header>
+        <div class="hero-top">
+            <span class="eyebrow">Personal Portfolio / 2026</span>
+            <span class="availability">Always evolving</span>
+        </div>
 
-  <main id="main">
+        <div class="hero-title reveal">
+            <span>Sean Julian</span>
+            <span class="second">Danendra.</span>
+        </div>
 
-    <!-- HERO SECTION -->
-    <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="hero-bottom">
 
-      <div class="hero-topline">
-        <span>INDEPENDENT MINDSET</span>
-        <span>EST. — ALWAYS EVOLVING</span>
-      </div>
+            <p class="hero-description">
+                An individual driven by curiosity, creativity,
+                and the desire to explore possibilities.
+                Always learning, always becoming.
+            </p>
 
-      <div class="hero-content">
+            <span class="signature">Sean Julian</span>
 
-        <p class="eyebrow hero-eyebrow">
-          A PERSONAL SPACE BY
-        </p>
-
-        <h1 id="hero-title">
-          <span>SEAN</span>
-          <span>JULIAN</span>
-          <span>DANENDRA</span>
-        </h1>
-
-        <p class="hero-tagline">
-          Curious by nature.
-          <em>Creative by perspective.</em>
-          <br>
-          Driven by growth.
-        </p>
-
-        <div class="hero-actions">
-
-          <a class="button button-light" href="#about">
-            EXPLORE MY WORLD <span>↘</span>
-          </a>
-
-          <a class="text-link light-link" href="#contact">
-            GET IN TOUCH <span>↗</span>
-          </a>
+            <span class="scroll-indicator">Scroll to explore ↓</span>
 
         </div>
 
-      </div>
+    </header>
 
-      <div class="hero-bottom">
-        <span>SCROLL TO DISCOVER</span>
-        <span class="scroll-line"></span>
-        <span>01 / 06</span>
-      </div>
+    <div class="line"></div>
 
-      <span class="hero-side-note">
-        JAKARTA, INDONESIA <span>·</span> PERSONAL PORTFOLIO
-      </span>
+    <!-- ABOUT -->
+    <section id="about">
+
+        <div class="section-label reveal">
+            01 / A little introduction
+        </div>
+
+        <div class="about-grid">
+
+            <h2 class="about-title reveal">
+                A story of <em>growth</em>, curiosity & becoming.
+            </h2>
+
+            <div class="about-content reveal">
+
+                <p>
+                    Hello, I'm <strong>Sean Julian Danendra.</strong>
+                    Welcome to my personal space — a reflection
+                    of who I am, what I value, and the person
+                    I aspire to become.
+                </p>
+
+                <p>
+                    I believe that life is a continuous journey
+                    of discovery. Every experience, challenge,
+                    and opportunity offers something meaningful
+                    to learn.
+                </p>
+
+                <p>
+                    I enjoy exploring new perspectives,
+                    developing ideas, and discovering ways
+                    to turn curiosity into meaningful progress.
+                </p>
+
+                <span class="signature">Nice to meet you.</span>
+
+            </div>
+
+        </div>
 
     </section>
 
-    <!-- INTRODUCTION STRIP -->
-    <section class="intro-strip" aria-label="Introduction">
+    <!-- QUOTE -->
+    <section class="quote-section">
 
-      <p>
-        AN OPEN MIND.
-        <span>AN ONGOING STORY.</span>
-        A WORLD OF POSSIBILITIES.
-      </p>
+        <div class="quote-mark">“</div>
 
-      <span class="strip-index">SJD — 001</span>
-
-    </section>
-
-    <!-- ABOUT SECTION -->
-    <section class="section about-section" id="about">
-
-      <div class="section-kicker">
-        <span>01 / ABOUT</span>
-        <span>THE PERSON BEHIND THE NAME</span>
-      </div>
-
-      <div class="about-grid">
-
-        <div class="portrait-wrap reveal">
-
-          <img
-            src="assets/images/profile-sean.jpg"
-            alt="Portrait of Sean Julian Danendra"
-            width="432"
-            height="432"
-            fetchpriority="high"
-          >
-
-          <span class="portrait-caption">
-            A MOMENT, A MEMORY, A BEGINNING.
-          </span>
-
-          <span class="portrait-index">FIG. 01</span>
-
-        </div>
-
-        <div class="about-copy reveal">
-
-          <p class="eyebrow">
-            A LITTLE INTRODUCTION
-          </p>
-
-          <h2>
-            MORE THAN
-            <br>
-            JUST A <em>NAME.</em>
-          </h2>
-
-          <p class="lead">
-            Every individual has a story shaped by curiosity,
-            experiences, perspectives, and the willingness to keep growing.
-          </p>
-
-          <p class="body-copy">
-            I'm Sean Julian Danendra, an individual driven by curiosity,
-            creativity, and a passion for continuous growth.
-
-            I enjoy exploring technology, discovering new perspectives,
-            and turning ideas into meaningful experiences.
-
-            This is a space to bring together the things I'm learning,
-            the ideas I'm exploring, and the work I choose to share.
-          </p>
-
-          <blockquote>
-            “I believe growth comes from curiosity, consistency,
-            and the courage to explore what is possible.”
-          </blockquote>
-
-          <p class="quote-note">
-            A PERSONAL GUIDING THOUGHT
-          </p>
-
-        </div>
-
-      </div>
-
-      <div class="about-meta">
-
-        <div>
-          <span>NAME</span>
-          <strong>Sean Julian Danendra</strong>
-        </div>
-
-        <div>
-          <span>BASED IN</span>
-          <strong>Jakarta, Indonesia</strong>
-        </div>
-
-        <div>
-          <span>CURRENT CHAPTER</span>
-          <strong>Exploring, Learning & Building</strong>
-        </div>
-
-        <div>
-          <span>EDUCATION</span>
-          <strong>Continuous Learning & Self-Development</strong>
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- INTERESTS SECTION -->
-    <section class="interests-section section" id="interests">
-
-      <div class="section-kicker light-kicker">
-        <span>02 / INTERESTS</span>
-        <span>AREAS OF CURIOSITY</span>
-      </div>
-
-      <div class="interests-heading">
-
-        <p class="eyebrow">
-          A WORK IN PROGRESS
-        </p>
-
-        <h2>
-          WHAT I'M
-          <br>
-          <em>INTO.</em>
+        <h2 class="quote-text reveal">
+            Becoming the best version of yourself
+            is a journey, not a destination.
         </h2>
 
-        <p class="interests-intro">
-          A collection of interests that reflect my curiosity
-          about technology, creativity, personal development,
-          and the endless possibilities of learning.
+        <p class="quote-author">
+            A personal philosophy — Sean Julian Danendra
         </p>
-
-      </div>
-
-      <div class="interest-list">
-
-        <article class="interest-row reveal">
-
-          <span class="interest-number">01</span>
-
-          <div>
-            <h3>TECHNICAL</h3>
-            <p>
-              Web Development · Programming · Front-End Technologies ·
-              Digital Innovation
-            </p>
-          </div>
-
-          <span class="interest-arrow">↗</span>
-
-        </article>
-
-        <article class="interest-row reveal">
-
-          <span class="interest-number">02</span>
-
-          <div>
-            <h3>CREATIVE</h3>
-            <p>
-              UI/UX Design · Visual Design · Digital Creativity ·
-              Creative Problem-Solving
-            </p>
-          </div>
-
-          <span class="interest-arrow">↗</span>
-
-        </article>
-
-        <article class="interest-row reveal">
-
-          <span class="interest-number">03</span>
-
-          <div>
-            <h3>PERSONAL</h3>
-            <p>
-              Self-Development · Psychology · Lifelong Learning ·
-              New Experiences
-            </p>
-          </div>
-
-          <span class="interest-arrow">↗</span>
-
-        </article>
-
-      </div>
 
     </section>
 
-    <!-- PROJECTS SECTION -->
-    <section class="section projects-section" id="projects">
+    <!-- VALUES -->
+    <section id="values">
 
-      <div class="section-kicker">
-        <span>03 / PROJECTS</span>
-        <span>SELECTED WORK & EXPLORATIONS</span>
-      </div>
+        <div class="section-label reveal">
+            02 / What I believe in
+        </div>
 
-      <div class="projects-heading">
+        <div class="values-grid">
 
-        <div>
+            <div class="value-card reveal">
+                <span class="value-number">01.</span>
+                <h3>Curiosity</h3>
+                <p>
+                    Always asking questions, exploring ideas,
+                    and finding inspiration in the world around me.
+                </p>
+            </div>
 
-          <p class="eyebrow">
-            IDEAS INTO SOMETHING REAL
-          </p>
+            <div class="value-card reveal">
+                <span class="value-number">02.</span>
+                <h3>Growth</h3>
+                <p>
+                    Embracing challenges and continuously
+                    improving through every experience.
+                </p>
+            </div>
 
-          <h2>
-            THINGS I'VE
-            <br>
-            <em>EXPLORED.</em>
-          </h2>
+            <div class="value-card reveal">
+                <span class="value-number">03.</span>
+                <h3>Creativity</h3>
+                <p>
+                    Expressing ideas, thinking differently,
+                    and finding beauty in meaningful details.
+                </p>
+            </div>
 
         </div>
 
-        <p class="projects-intro">
-          A collection of personal projects, creative experiments,
-          and digital explorations. Every project is an opportunity
-          to learn, create, and discover something new.
-        </p>
+    </section>
 
-      </div>
+    <!-- SKILLS -->
+    <section id="skills" class="skills-section">
 
-      <div class="project-grid">
+        <div class="section-label reveal">
+            03 / Things I explore
+        </div>
 
-        <!-- PROJECT 01 -->
-        <article class="project-card project-feature reveal">
+        <h2 class="skills-heading reveal">
+            Interests & Skills.
+        </h2>
 
-          <div class="project-visual visual-red">
+        <div class="skills-list reveal">
 
-            <span class="visual-mark">01</span>
+            <span class="skill">Creative Thinking</span>
+            <span class="skill">Communication</span>
+            <span class="skill">Problem Solving</span>
+            <span class="skill">Leadership</span>
+            <span class="skill">Adaptability</span>
+            <span class="skill">Continuous Learning</span>
 
-            <span class="visual-word">
-              IDEAS
-              <br>
-              INTO
-              <br>
-              REALITY.
-            </span>
-
-            <span class="visual-foot">
-              PERSONAL DIGITAL IDENTITY
-            </span>
-
-          </div>
-
-          <div class="project-info">
-
-            <div>
-
-              <span class="project-status">
-                PERSONAL PROJECT
-              </span>
-
-              <h3>Personal Portfolio Website</h3>
-
-              <p>
-                A personal portfolio website designed to introduce
-                Sean Julian Danendra, showcase personal interests,
-                document creative explorations, and share an ongoing
-                journey of learning and growth.
-              </p>
-
-            </div>
-
-            <span class="project-number">01 / 03</span>
-
-          </div>
-
-          <div class="project-meta">
-            <span>Web Development</span>
-            <span>HTML · CSS · JavaScript</span>
-          </div>
-
-          <div class="project-links">
-
-            <a
-              href="https://github.com/seanjuliandanendra/seanjuliandanendra"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              VIEW SOURCE CODE ↗
-            </a>
-
-            <a href="#contact">
-              GET IN TOUCH ↗
-            </a>
-
-          </div>
-
-        </article>
-
-        <!-- PROJECT 02 -->
-        <article class="project-card reveal">
-
-          <div class="project-visual visual-ivory">
-
-            <span class="visual-mark">02</span>
-
-            <span class="visual-word dark-word">
-              BUILD.
-              <br>
-              CREATE.
-              <br>
-              EXPLORE.
-            </span>
-
-            <span class="visual-foot dark-foot">
-              A JOURNEY OF EXPERIMENTATION
-            </span>
-
-          </div>
-
-          <div class="project-info">
-
-            <div>
-
-              <span class="project-status">
-                LEARNING & EXPERIMENTATION
-              </span>
-
-              <h3>Web Development Experiments</h3>
-
-              <p>
-                Exploring website development, responsive layouts,
-                interactive interfaces, and modern approaches to
-                creating accessible digital experiences.
-              </p>
-
-            </div>
-
-            <span class="project-number">02 / 03</span>
-
-          </div>
-
-          <div class="project-meta">
-            <span>Digital Exploration</span>
-            <span>Front-End Development</span>
-          </div>
-
-          <div class="project-links">
-
-            <a
-              href="https://github.com/seanjuliandanendra"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              EXPLORE GITHUB ↗
-            </a>
-
-            <a href="#contact">
-              GET IN TOUCH ↗
-            </a>
-
-          </div>
-
-        </article>
-
-        <!-- PROJECT 03 -->
-        <article class="project-card reveal">
-
-          <div class="project-visual visual-charcoal">
-
-            <span class="visual-mark">03</span>
-
-            <span class="visual-word">
-              THINK.
-              <br>
-              DESIGN.
-              <br>
-              GROW.
-            </span>
-
-            <span class="visual-foot">
-              CREATIVITY WITHOUT LIMITS
-            </span>
-
-          </div>
-
-          <div class="project-info">
-
-            <div>
-
-              <span class="project-status">
-                CREATIVE EXPLORATION
-              </span>
-
-              <h3>Creative & Digital Explorations</h3>
-
-              <p>
-                Exploring the intersection of creativity,
-                technology, and visual communication through
-                ideas, digital tools, and continuous experimentation.
-              </p>
-
-            </div>
-
-            <span class="project-number">03 / 03</span>
-
-          </div>
-
-          <div class="project-meta">
-            <span>Creative Exploration</span>
-            <span>Digital Creativity</span>
-          </div>
-
-          <div class="project-links">
-
-            <a href="#contact">
-              MORE INFORMATION ↗
-            </a>
-
-            <a href="#contact">
-              GET IN TOUCH ↗
-            </a>
-
-          </div>
-
-        </article>
-
-      </div>
+        </div>
 
     </section>
 
-    <!-- HIGHLIGHTS SECTION -->
-    <section class="highlights-section section" id="highlights">
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
 
-      <div class="section-kicker">
-        <span>04 / HIGHLIGHTS</span>
-        <span>THE JOURNEY SO FAR</span>
-      </div>
+        <div class="section-label reveal">
+            04 / Let's connect
+        </div>
 
-      <div class="highlights-heading">
-
-        <p class="eyebrow">
-          NO FINISH LINE, JUST FORWARD
-        </p>
-
-        <h2>
-          EVERY STEP
-          <br>
-          <em>COUNTS.</em>
+        <h2 class="reveal">
+            Every story<br>
+            starts <em>somewhere.</em>
         </h2>
 
         <p>
-          Growth is not always measured by milestones.
-          Sometimes, it is found in small steps, meaningful lessons,
-          and the courage to keep moving forward.
+            Thank you for visiting my little corner of the internet.
         </p>
 
-      </div>
+        <a href="mailto:your-email@example.com" class="contact-button">
+            Get in touch ↗
+        </a>
 
-      <div class="timeline">
+        <br><br>
 
-        <article class="timeline-item reveal">
-
-          <span class="timeline-year">ONGOING</span>
-
-          <div>
-
-            <span class="timeline-type">
-              PERSONAL DEVELOPMENT
-            </span>
-
-            <h3>A Journey of Continuous Learning</h3>
-
-            <p>
-              Exploring new knowledge, developing perspectives,
-              and embracing opportunities for personal and
-              intellectual growth.
-            </p>
-
-          </div>
-
-          <span class="timeline-dot"></span>
-
-        </article>
-
-        <article class="timeline-item reveal">
-
-          <span class="timeline-year">ONGOING</span>
-
-          <div>
-
-            <span class="timeline-type">
-              TECHNOLOGY & CREATIVITY
-            </span>
-
-            <h3>Exploring the Digital World</h3>
-
-            <p>
-              Developing an interest in technology, web development,
-              digital creativity, and the possibilities of building
-              meaningful digital experiences.
-            </p>
-
-          </div>
-
-          <span class="timeline-dot"></span>
-
-        </article>
-
-        <article class="timeline-item reveal">
-
-          <span class="timeline-year">ONGOING</span>
-
-          <div>
-
-            <span class="timeline-type">
-              PERSONAL BRANDING
-            </span>
-
-            <h3>Building My Personal Portfolio</h3>
-
-            <p>
-              Creating a digital space to document interests,
-              showcase selected work, share ideas, and represent
-              an evolving personal journey.
-            </p>
-
-          </div>
-
-          <span class="timeline-dot"></span>
-
-        </article>
-
-      </div>
+        <span class="signature">Sean Julian Danendra</span>
 
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section class="contact-section" id="contact">
+    <!-- FOOTER -->
+    <footer>
 
-      <div class="contact-topline">
+        <p>© 2026 SEAN JULIAN DANENDRA</p>
 
-        <span>05 / CONTACT</span>
-        <span>OPEN TO GOOD CONVERSATIONS</span>
+        <span class="footer-signature">Sincerely, Sean.</span>
 
-      </div>
+        <p>MADE WITH INTENTION & CURIOSITY.</p>
 
-      <p class="eyebrow">
-        HAVE SOMETHING IN MIND?
-      </p>
+    </footer>
 
-      <h2>
-        LET'S MAKE
-        <br>
-        SOMETHING <em>MEANINGFUL.</em>
-      </h2>
+    <!-- JAVASCRIPT -->
+    <script>
 
-      <div class="contact-bottom">
+        const observer = new IntersectionObserver((entries) => {
 
-        <p>
-          Have an idea, an interesting opportunity,
-          or simply want to connect?
+            entries.forEach(entry => {
 
-          I'm always open to meaningful conversations,
-          new perspectives, and opportunities to learn.
-        </p>
+                if (entry.isIntersecting) {
 
-        <a class="contact-cta" href="#social-links">
-          LET'S CONNECT <span>↗</span>
-        </a>
+                    entry.target.classList.add('active');
 
-      </div>
+                    observer.unobserve(entry.target);
 
-      <div class="social-list" id="social-links">
+                }
 
-        <a href="#contact" aria-label="Email contact information to be updated">
-          EMAIL <span>↗</span>
-        </a>
+            });
 
-        <a
-          href="https://github.com/seanjuliandanendra"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GITHUB <span>↗</span>
-        </a>
+        }, {
+            threshold: 0.12
+        });
 
-        <a href="https://www.facebook.com/profile.php?id=61596807389967" aria-label="LinkedIn profile to be updated">
-          FACEBOOK <span>↗</span>
-        </a>
+        document.querySelectorAll('.reveal').forEach(element => {
+            observer.observe(element);
+        });
 
-        <a href="#contact" aria-label="Instagram profile to be updated">
-          INSTAGRAM <span>↗</span>
-        </a>
-
-      </div>
-
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-
-    <div class="footer-top">
-
-      <a class="footer-brand" href="#home">
-        SEAN JULIAN
-        <br>
-        DANENDRA<span>®</span>
-      </a>
-
-      <p>
-        THANK YOU
-        <br>
-        FOR BEING HERE.
-      </p>
-
-      <a class="back-top" href="#top">
-        BACK TO TOP ↑
-      </a>
-
-    </div>
-
-    <div class="footer-bottom">
-
-      <span>
-        © <span id="year"></span> SEAN JULIAN DANENDRA
-      </span>
-
-      <span>
-        DESIGNED WITH INTENTION.
-      </span>
-
-      <span>
-        JAKARTA, INDONESIA
-      </span>
-
-    </div>
-
-  </footer>
+    </script>
 
 </body>
 </html>
