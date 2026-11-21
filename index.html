@@ -991,9 +991,146 @@
       .footer-bottom      { flex-direction: column; gap: 0.5rem; }
       .intro-strip        { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
     }
+
+    /* ============================================================
+       ENHANCEMENTS — reading progress, custom cursor, hero entrance,
+       staggered reveals, project tilt, intro marquee, back-to-top
+       ============================================================ */
+
+    /* --- Reading progress bar (fixed at the very top) --- */
+    .scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0;
+      background: linear-gradient(90deg, var(--red), var(--red-deep));
+      z-index: 200;
+      transition: width 0.12s linear;
+    }
+
+    /* --- Custom cursor ring (desktop / fine-pointer only) --- */
+    .cursor-ring {
+      position: fixed;
+      top: 0; left: 0;
+      width: 34px; height: 34px;
+      border: 1.5px solid var(--red);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: width 0.25s ease, height 0.25s ease,
+                  opacity 0.3s ease, background 0.25s ease, border-color 0.25s ease;
+    }
+    .cursor-ring.is-active { opacity: 0.9; }
+    .cursor-ring.is-hover {
+      width: 62px; height: 62px;
+      background: rgba(181, 9, 27, 0.10);
+    }
+    @media (hover: none), (pointer: coarse) {
+      .cursor-ring { display: none; }
+    }
+
+    /* --- Hero entrance (pure CSS animation, no JS dependency) --- */
+    .hero-eyebrow,
+    .hero h1 span,
+    .hero-tagline,
+    .hero-actions {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    .hero-eyebrow { animation: heroIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.10s forwards; }
+    .hero h1 span { animation: heroIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+    .hero h1 span:nth-child(1) { animation-delay: 0.22s; }
+    .hero h1 span:nth-child(2) { animation-delay: 0.34s; }
+    .hero h1 span:nth-child(3) { animation-delay: 0.46s; }
+    .hero-tagline { animation: heroIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.60s forwards; }
+    .hero-actions { animation: heroIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.74s forwards; }
+    @keyframes heroIn { to { opacity: 1; transform: translateY(0); } }
+
+    /* --- Staggered reveals within grouped lists --- */
+    .interest-list .reveal:nth-child(2) { transition-delay: 0.08s; }
+    .interest-list .reveal:nth-child(3) { transition-delay: 0.16s; }
+    .project-grid  .reveal:nth-child(2) { transition-delay: 0.10s; }
+    .project-grid  .reveal:nth-child(3) { transition-delay: 0.20s; }
+    .timeline      .reveal:nth-child(2) { transition-delay: 0.10s; }
+    .timeline      .reveal:nth-child(3) { transition-delay: 0.20s; }
+
+    /* --- Project card 3D tilt (driven by JS; snappy while active) --- */
+    .project-card { will-change: transform; }
+    .project-card.is-tilting { transition: box-shadow 0.3s ease; }
+
+    /* --- Intro strip marquee (overrides the earlier .intro-strip layout) --- */
+    .intro-strip {
+      position: relative;
+      overflow: hidden;
+      display: block;
+      padding: clamp(1.5rem, 3vw, 2.25rem) 0;
+    }
+    .marquee { display: flex; width: max-content; }
+    .marquee-track {
+      display: flex;
+      flex-shrink: 0;
+      animation: marquee 26s linear infinite;
+    }
+    .marquee-track > p { white-space: nowrap; padding-right: 2.5rem; }
+    .marquee-dot { color: var(--ink); margin: 0 0.5rem; }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+    .intro-strip:hover .marquee-track { animation-play-state: paused; }
+    .strip-index {
+      position: absolute;
+      right: var(--gutter);
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--ink);
+      color: var(--ivory);
+      padding: 0.3rem 0.7rem;
+      font-size: 0.66rem;
+      letter-spacing: 0.2em;
+      opacity: 1;
+      z-index: 2;
+    }
+
+    /* --- Floating back-to-top button --- */
+    .to-top {
+      position: fixed;
+      right: clamp(1rem, 3vw, 2rem);
+      bottom: clamp(1rem, 3vw, 2rem);
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--ivory);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.15rem;
+      z-index: 90;
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transform: translateY(12px) scale(0.9);
+      transition: opacity 0.3s ease, visibility 0.3s ease,
+                  transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+      border: 1px solid var(--ink);
+      box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.4);
+    }
+    .to-top.is-visible {
+      opacity: 1; visibility: visible; pointer-events: auto;
+      transform: none;
+    }
+    .to-top:hover { background: var(--red); border-color: var(--red); }
+
+    /* --- Reduced motion: disable the decorative extras --- */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-eyebrow, .hero h1 span, .hero-tagline, .hero-actions {
+        opacity: 1; transform: none; animation: none;
+      }
+      .marquee-track { animation: none; }
+      .cursor-ring { display: none; }
+      .scroll-progress { transition: none; }
+    }
   </style>
 </head>
 <body>
+
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
 
   <a class="skip-link" href="#main">Skip to content</a>
 
@@ -1091,10 +1228,20 @@
     <!-- INTRODUCTION STRIP -->
     <section class="intro-strip" aria-label="Introduction">
 
-      <p>
-        AN OPEN MIND.
-        <span>AN ONGOING STORY.</span> A WORLD OF POSSIBILITIES.
-      </p>
+      <div class="marquee">
+        <div class="marquee-track">
+          <p>
+            AN OPEN MIND.
+            <span>AN ONGOING STORY.</span> A WORLD OF POSSIBILITIES.
+            <span class="marquee-dot" aria-hidden="true">✦</span>
+          </p>
+          <p aria-hidden="true">
+            AN OPEN MIND.
+            <span>AN ONGOING STORY.</span> A WORLD OF POSSIBILITIES.
+            <span class="marquee-dot" aria-hidden="true">✦</span>
+          </p>
+        </div>
+      </div>
 
       <span class="strip-index">SJD — 001</span>
 
@@ -1656,7 +1803,7 @@
       <div class="social-list" id="social-links">
 
         <!-- TODO: replace href with a real mailto: address once known. -->
-        <a href="mailto:seanjuliandanendra@gmail.com" aria-label="Email Sean Julian Danendra">
+        <a href="mailto:hello@seanjuliandanendra.com" aria-label="Email Sean Julian Danendra">
           EMAIL <span>↗</span>
         </a>
 
@@ -1682,7 +1829,7 @@
 
         <!-- TODO: replace href with the real Instagram URL once known. -->
         <a
-          href="https://www.instagram.com/seanjuliandanendra/"
+          href="https://www.instagram.com/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Sean Julian Danendra on Instagram (opens in a new tab) — link to be updated"
@@ -1737,50 +1884,72 @@
 
   </footer>
 
+  <button class="to-top" id="to-top" type="button" aria-label="Back to top">
+    <span aria-hidden="true">↑</span>
+  </button>
+
   <script>
     (function () {
       'use strict';
+
+      var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
       // ---- Current year in footer ----
       var yearEl = document.getElementById('year');
       if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-      // ---- Mobile menu toggle ----
+      // ---- Mobile menu toggle (with backdrop + body scroll lock) ----
       var toggle = document.querySelector('.menu-toggle');
       var nav = document.getElementById('primary-nav');
       var backdrop = document.getElementById('nav-backdrop');
 
-      function closeMenu() {
+      function setMenu(open) {
         if (!nav || !toggle) return;
-        nav.classList.remove('is-open');
-        toggle.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Open navigation');
-        if (backdrop) backdrop.classList.remove('is-open');
+        nav.classList.toggle('is-open', open);
+        toggle.classList.toggle('is-open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+        if (backdrop) backdrop.classList.toggle('is-open', open);
+        // Lock background scroll while the panel is open.
+        document.body.style.overflow = open ? 'hidden' : '';
       }
+      function closeMenu() { setMenu(false); }
 
       if (toggle && nav) {
         toggle.addEventListener('click', function () {
-          var open = nav.classList.toggle('is-open');
-          toggle.classList.toggle('is-open', open);
-          toggle.setAttribute('aria-expanded', String(open));
-          toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-          if (backdrop) backdrop.classList.toggle('is-open', open);
+          setMenu(!nav.classList.contains('is-open'));
         });
-
-        // Close the menu after picking a link.
         nav.querySelectorAll('a').forEach(function (a) {
           a.addEventListener('click', closeMenu);
         });
-
-        // Click the dimmed backdrop to close.
         if (backdrop) backdrop.addEventListener('click', closeMenu);
-
-        // Close on Escape.
         document.addEventListener('keydown', function (e) {
           if (e.key === 'Escape') closeMenu();
         });
       }
+
+      // ---- Smooth anchor scroll with sticky-header offset ----
+      var header = document.querySelector('.site-header');
+      function headerOffset() { return header ? header.offsetHeight : 0; }
+
+      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          var id = a.getAttribute('href');
+          if (!id || id === '#') return;
+          var target = document.querySelector(id);
+          if (!target) return;
+          e.preventDefault();
+          closeMenu();
+          var top = target.getBoundingClientRect().top + window.pageYOffset - headerOffset() - 8;
+          window.scrollTo({ top: top, behavior: reducedMotion ? 'auto' : 'smooth' });
+          // Move focus for assistive tech without triggering another scroll jump.
+          try {
+            target.setAttribute('tabindex', '-1');
+            target.focus({ preventScroll: true });
+          } catch (err) { /* older browsers */ }
+        });
+      });
 
       // ---- Reveal-on-scroll ----
       var revealEls = document.querySelectorAll('.reveal');
@@ -1814,6 +1983,95 @@
         }, { rootMargin: '-45% 0px -50% 0px' });
         sections.forEach(function (s) { spy.observe(s); });
       }
+
+      // ---- Scroll-driven UI: progress bar, back-to-top, hero parallax ----
+      var progress = document.getElementById('scroll-progress');
+      var toTop = document.getElementById('to-top');
+      var heroContent = document.querySelector('.hero-content');
+      var ticking = false;
+
+      function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(function () {
+          var doc = document.documentElement;
+          var y = window.pageYOffset;
+          // Reading progress bar
+          var max = doc.scrollHeight - doc.clientHeight;
+          if (progress) progress.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
+          // Floating back-to-top button
+          if (toTop) toTop.classList.toggle('is-visible', y > 600);
+          // Subtle hero parallax (only while the hero is on screen)
+          if (heroContent && !reducedMotion) {
+            heroContent.style.transform = y < window.innerHeight
+              ? 'translateY(' + (y * 0.12).toFixed(1) + 'px)'
+              : '';
+          }
+          ticking = false;
+        });
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      if (toTop) {
+        toTop.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+        });
+      }
+
+      // ---- Custom cursor ring (desktop / fine pointer only) ----
+      var ring = document.getElementById('cursor-ring');
+      if (ring && finePointer && !reducedMotion) {
+        var rx = window.innerWidth / 2, ry = window.innerHeight / 2;
+        var tx = rx, ty = ry;
+        ring.style.left = tx + 'px';
+        ring.style.top = ty + 'px';
+        document.addEventListener('mousemove', function (e) {
+          tx = e.clientX; ty = e.clientY;
+          ring.classList.add('is-active');
+        });
+        (function loop() {
+          rx += (tx - rx) * 0.18;
+          ry += (ty - ry) * 0.18;
+          ring.style.left = rx + 'px';
+          ring.style.top = ry + 'px';
+          window.requestAnimationFrame(loop);
+        })();
+        document.querySelectorAll('a, button, .project-card, .interest-row').forEach(function (el) {
+          el.addEventListener('mouseenter', function () { ring.classList.add('is-hover'); });
+          el.addEventListener('mouseleave', function () { ring.classList.remove('is-hover'); });
+        });
+        document.addEventListener('mouseleave', function () { ring.classList.remove('is-active'); });
+      }
+
+      // ---- Project card 3D tilt (desktop / fine pointer only) ----
+      if (finePointer && !reducedMotion) {
+        document.querySelectorAll('.project-card').forEach(function (card) {
+          card.addEventListener('mouseenter', function () { card.classList.add('is-tilting'); });
+          card.addEventListener('mousemove', function (e) {
+            var r = card.getBoundingClientRect();
+            var px = (e.clientX - r.left) / r.width - 0.5;
+            var py = (e.clientY - r.top) / r.height - 0.5;
+            var rotY = (px * 8).toFixed(2);
+            var rotX = (-py * 8).toFixed(2);
+            card.style.transform =
+              'perspective(900px) rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg) translateY(-6px)';
+          });
+          card.addEventListener('mouseleave', function () {
+            card.classList.remove('is-tilting');
+            card.style.transform = '';
+          });
+        });
+      }
+
+      // ---- Close the mobile menu if the viewport grows past the breakpoint ----
+      var resizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+          if (window.innerWidth > 860) closeMenu();
+        }, 150);
+      });
     })();
   </script>
 
