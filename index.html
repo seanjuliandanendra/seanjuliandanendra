@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add('js');</script>
+
+  <title>Sean Julian Danendra — Personal Portfolio</title>
+  <meta name="description" content="Personal portfolio of Sean Julian Danendra: curious by nature, creative by perspective, driven by growth. Explore interests, projects and milestones.">
+  <meta name="keywords" content="Sean Julian Danendra, personal portfolio, creative portfolio, web portfolio, personal brand">
+  <meta name="author" content="Sean Julian Danendra">
+  <meta name="theme-color" content="#D80B16">
+
+  <!-- Open Graph. Replace the relative image URL with your full https:// address once the site is live. -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sean Julian Danendra — Personal Portfolio">
+  <meta property="og:description" content="Curious by nature. Creative by perspective. Driven by growth.">
+  <meta property="og:image" content="assets/images/og-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="#home" aria-label="Sean Julian Danendra, back to top">Sean Julian Danendra</a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#home" data-nav="home">Home</a>
+        <a href="#about" data-nav="about">About</a>
+        <a href="#interests" data-nav="interests">Interests</a>
+        <a href="#projects" data-nav="projects">Projects</a>
+        <a href="#highlights" data-nav="highlights">Highlights</a>
+        <a href="#contact" data-nav="contact">Contact</a>
+      </nav>
+
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="menu" id="menu" aria-hidden="true">
+    <nav class="menu__nav" aria-label="Mobile">
+      <a href="#home" data-nav="home"><span>Home</span></a>
+      <a href="#about" data-nav="about"><span>About</span></a>
+      <a href="#interests" data-nav="interests"><span>Interests</span></a>
+      <a href="#projects" data-nav="projects"><span>Projects</span></a>
+      <a href="#highlights" data-nav="highlights"><span>Highlights</span></a>
+      <a href="#contact" data-nav="contact"><span>Contact</span></a>
+    </nav>
+    <p class="menu__foot">Sean Julian Danendra</p>
+  </div>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home" data-section="home">
+      <h1 class="hero__cover">
+        <img class="hero__banner" src="assets/images/brand-banner.png" width="1500" height="500"
+             alt="Sean Julian Danendra" fetchpriority="high" decoding="async">
+      </h1>
+
+      <div class="hero__body">
+        <p class="hero__tagline" aria-label="Curious by nature. Creative by perspective. Driven by growth.">
+          <span class="hero__line hero__line--1"><span>Curious by nature.</span></span>
+          <span class="hero__line hero__line--2"><span>Creative by perspective.</span></span>
+          <span class="hero__line hero__line--3"><span>Driven by growth.</span></span>
+        </p>
+
+        <div class="hero__side">
+          <p class="hero__intro">An individual with a passion for learning, creativity, exploration, and continuous self-development.</p>
+          <div class="hero__actions">
+            <a class="btn btn--solid" href="#about">Explore My World</a>
+            <a class="btn btn--line" href="#contact">Get in Touch</a>
+          </div>
+        </div>
+
+        <div class="hero__meta">
+          <p class="hero__label">Personal portfolio</p>
+          <p class="hero__label hero__label--place">[City or location, optional]</p>
+          <a class="hero__scroll" href="#about" aria-label="Scroll to About">
+            <span>Scroll</span>
+            <i aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section about" id="about" data-section="about" aria-labelledby="about-title">
+      <div class="wrap about__grid">
+        <figure class="about__portrait reveal">
+          <div class="about__frame">
+            <img src="assets/images/profile-sean.jpg" width="432" height="432" loading="lazy" decoding="async"
+                 alt="Portrait of Sean Julian Danendra on a rooftop at night, one hand in his hair, wearing a black graphic t-shirt">
+          </div>
+          <figcaption class="about__caption">
+            <span class="about__sign" aria-hidden="true">Sean</span>
+            <span>Sean Julian Danendra</span>
+          </figcaption>
+        </figure>
+
+        <div class="about__text">
+          <p class="kicker reveal">About</p>
+          <h2 class="display reveal" id="about-title">More than<br>just a name.</h2>
+          <p class="lede reveal">Every individual has a story shaped by curiosity, experiences, perspectives, and the willingness to keep growing.</p>
+          <p class="body placeholder reveal">[Write personal biography here]</p>
+
+          <blockquote class="about__quote reveal">
+            I believe growth comes from curiosity, consistency, and the courage to explore what is possible.
+          </blockquote>
+
+          <dl class="meta reveal">
+            <div><dt>Education</dt><dd class="placeholder">[Educational background]</dd></div>
+            <div><dt>Status</dt><dd class="placeholder">[Current academic or professional status]</dd></div>
+            <div><dt>Location</dt><dd class="placeholder">[City or location, optional]</dd></div>
+            <div><dt>Background</dt><dd class="placeholder">[Personal background]</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INTERESTS ============ -->
+    <section class="section interests" id="interests" data-section="interests" aria-labelledby="interests-title">
+      <div class="wrap">
+        <p class="kicker reveal">Interests and skills</p>
+        <h2 class="display reveal" id="interests-title">What I'm into.</h2>
+        <p class="interests__note reveal">Everything below is a placeholder to edit. None of it is a confirmed skill.</p>
+
+        <div class="interests__grid">
+          <article class="topic reveal">
+            <span class="topic__num" aria-hidden="true">01</span>
+            <h3 class="topic__title">Technical</h3>
+            <ul class="topic__list">
+              <li>[Programming languages]</li>
+              <li>[Web development]</li>
+              <li>[Software and digital tools]</li>
+              <li>[Other technical interests]</li>
+            </ul>
+          </article>
+
+          <article class="topic reveal">
+            <span class="topic__num" aria-hidden="true">02</span>
+            <h3 class="topic__title">Creative</h3>
+            <ul class="topic__list">
+              <li>[Visual design]</li>
+              <li>[Photography]</li>
+              <li>[Creative exploration]</li>
+              <li>[Content creation]</li>
+            </ul>
+          </article>
+
+          <article class="topic reveal">
+            <span class="topic__num" aria-hidden="true">03</span>
+            <h3 class="topic__title">Personal interests</h3>
+            <ul class="topic__list">
+              <li>[Music]</li>
+              <li>[Technology]</li>
+              <li>[Lifestyle]</li>
+              <li>[Learning]</li>
+              <li>[Other interests]</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section projects" id="projects" data-section="projects" aria-labelledby="projects-title">
+      <div class="wrap">
+        <p class="kicker reveal">Selected work</p>
+        <h2 class="display reveal" id="projects-title">Things I've explored.</h2>
+        <p class="projects__note reveal">Three placeholders. Replace each with a real project, or delete the ones you don't need.</p>
+
+        <div class="projects__grid">
+
+          <!-- Project 1 -->
+          <article class="project project--a reveal">
+            <div class="project__thumb project__thumb--red" role="img" aria-label="Placeholder thumbnail for project 1">
+              <span class="project__big" aria-hidden="true">01</span>
+              <span class="project__tag">Placeholder</span>
+            </div>
+            <div class="project__info">
+              <p class="project__cat">[Project category]</p>
+              <h3 class="project__title">[Project title]</h3>
+              <p class="project__desc">[Short description of what the project is and what you explored while making it.]</p>
+              <p class="project__tech">[Technology] / [Technology] / [Technology]</p>
+              <div class="project__links">
+                <a href="https://github.com/seanjuliandanendra" target="_blank" rel="noopener noreferrer">GitHub repository</a>
+                <a href="#" data-placeholder="true" aria-disabled="true">Live website</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project project--b reveal">
+            <div class="project__thumb project__thumb--black" role="img" aria-label="Placeholder thumbnail for project 2">
+              <span class="project__big" aria-hidden="true">02</span>
+              <span class="project__tag">Placeholder</span>
+            </div>
+            <div class="project__info">
+              <p class="project__cat">[Project category]</p>
+              <h3 class="project__title">[Project title]</h3>
+              <p class="project__desc">[Short description of what the project is and what you explored while making it.]</p>
+              <p class="project__tech">[Technology] / [Technology] / [Technology]</p>
+              <div class="project__links">
+                <a href="https://github.com/seanjuliandanendra" target="_blank" rel="noopener noreferrer">GitHub repository</a>
+                <a href="#" data-placeholder="true" aria-disabled="true">Live website</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project project--c reveal">
+            <div class="project__thumb project__thumb--ivory" role="img" aria-label="Placeholder thumbnail for project 3">
+              <span class="project__big" aria-hidden="true">03</span>
+              <span class="project__tag">Placeholder</span>
+            </div>
+            <div class="project__info">
+              <p class="project__cat">[Project category]</p>
+              <h3 class="project__title">[Project title]</h3>
+              <p class="project__desc">[Short description of what the project is and what you explored while making it.]</p>
+              <p class="project__tech">[Technology] / [Technology] / [Technology]</p>
+              <div class="project__links">
+                <a href="https://github.com/seanjuliandanendra" target="_blank" rel="noopener noreferrer">GitHub repository</a>
+                <a href="#" data-placeholder="true" aria-disabled="true">Live website</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HIGHLIGHTS ============ -->
+    <section class="section highlights" id="highlights" data-section="highlights" aria-labelledby="highlights-title">
+      <div class="wrap">
+        <p class="kicker reveal">The journey</p>
+        <h2 class="display reveal" id="highlights-title">Every step counts.</h2>
+
+        <ol class="timeline">
+          <li class="milestone reveal">
+            <span class="milestone__year">[Year]</span>
+            <div class="milestone__body">
+              <p class="milestone__cat">Education</p>
+              <h3>[Milestone title]</h3>
+              <p>[Description of the experience or achievement]</p>
+            </div>
+          </li>
+          <li class="milestone reveal">
+            <span class="milestone__year">[Year]</span>
+            <div class="milestone__body">
+              <p class="milestone__cat">Learning experience</p>
+              <h3>[Milestone title]</h3>
+              <p>[Description of the experience or achievement]</p>
+            </div>
+          </li>
+          <li class="milestone reveal">
+            <span class="milestone__year">[Year]</span>
+            <div class="milestone__body">
+              <p class="milestone__cat">Creative milestone</p>
+              <h3>[Milestone title]</h3>
+              <p>[Description of the experience or achievement]</p>
+            </div>
+          </li>
+          <li class="milestone reveal">
+            <span class="milestone__year">[Year]</span>
+            <div class="milestone__body">
+              <p class="milestone__cat">Personal achievement</p>
+              <h3>[Milestone title]</h3>
+              <p>[Description of the experience or achievement]</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact" data-section="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <p class="kicker reveal">Let's connect</p>
+        <h2 class="display display--xl reveal" id="contact-title">Let's make something meaningful.</h2>
+        <p class="lede reveal">Have an idea, an interesting opportunity, or simply want to connect? I'd be happy to hear from you.</p>
+
+        <!-- Replace the mailto address and the visible text with your real email. -->
+        <a class="contact__cta reveal" href="mailto:?subject=Hello%20Sean" data-placeholder-email="true">[Your email]</a>
+
+        <ul class="contact__links reveal">
+          <li><a href="https://github.com/seanjuliandanendra" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="#" data-placeholder="true" aria-disabled="true">LinkedIn <small>[Your LinkedIn URL]</small></a></li>
+          <li><a href="#" data-placeholder="true" aria-disabled="true">Instagram <small>[Your Instagram URL]</small></a></li>
+          <li><a href="#" data-placeholder="true" aria-disabled="true">Other <small>[Optional]</small></a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="wrap">
+      <p class="footer__thanks">Thank you for being here.</p>
+      <div class="footer__row">
+        <p class="footer__copy">&copy; <span id="year">2026</span> Sean Julian Danendra</p>
+        <ul class="footer__social">
+          <li><a href="https://github.com/seanjuliandanendra" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="#" data-placeholder="true" aria-disabled="true">LinkedIn</a></li>
+          <li><a href="#" data-placeholder="true" aria-disabled="true">Instagram</a></li>
+        </ul>
+        <a class="footer__top" href="#home" id="back-to-top">Back to top <span aria-hidden="true">&uarr;</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
